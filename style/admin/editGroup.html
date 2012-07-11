@@ -1,0 +1,37 @@
+<form action="" method="post" f3:array="group">
+<h1>{this.title}</h1>
+
+<table cellspacing="1" class="tb">
+<tr>
+	<td style="width: 30%"><b>1. {lang.name}:</b></td>
+	<td><input name="name" maxlength="50" value="{group.name}" size="30" ></td>
+</tr>
+<tr>
+	<td><b>2. {lang.access}:</b></td>
+	<td>
+		<select name="access">
+			<option value="1">{lang.on}</option>
+			{langs}
+			<option value="2">{lang.hidden}</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><b>3. {lang.open}?</b></td>
+	<td><input name="opened" type="checkbox" ></td>
+</tr>
+<tr>
+	<td><b>4. {lang.desc}:</b></td>
+	<td>
+		<textarea name="dsc" rows="6" style="width: 95%">{clean: group.dsc}</textarea>
+		<script type="text/javascript">var e = new Editor(document.forms[0].dsc)</script>
+	</td>
+</tr>
+<tr>
+	<td class="eth" colspan="2">
+		<input type="button" value="{lang.preview}" onclick="e.preview()" >
+		<input type="submit" value="{lang.save}" >
+	</td>
+</tr>
+</table>
+</form>

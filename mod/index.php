@@ -1,0 +1,1 @@
+<?php if(!defined('iCMS')) header('Location: ..'); return;

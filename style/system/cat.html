@@ -1,0 +1,27 @@
+<!-- IF options -->
+<div id="options" style="position: absolute; right: 9px; top: 8px">
+	<a href="{add}" title="{lang.addItem}"><img src="img/icon/add.png" alt="N"></a>
+	<a href="{list}" title="{lang.itemList}"><img src="img/icon/del.png" alt="E"></a>
+	<!-- IF edit -->
+	<a href="{edit}" title="{lang.edit}"><img src="img/icon/cog.png" alt="O"></a>
+	<!-- END -->
+</div>
+<!-- END -->
+
+<!-- IF cat.text OR subcats -->
+<h1>{cat.name}</h1>
+<div class="box">
+
+	<!-- IF cat.text -->
+	{nl2br: cat.text}
+	<!-- END -->
+
+	<!-- IF subcats -->
+	<ul class="cats">
+		<!-- START subcats -->
+		<li><a href="{url}" title="{desc}">{name}</a> ({num})</li>
+		<!-- STOP -->
+	</ul>
+	<!-- END -->
+</div>
+<!-- END -->

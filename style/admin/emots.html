@@ -1,0 +1,52 @@
+<form action="" method="post">
+<h1>{this.title}</h1>
+
+<div class="box">
+{lang.emotxt}<br ><br >
+
+<div id="items"><!-- START emo --><div align="center" class="item">
+	<img src="img/emo/{1}" alt="?" >
+  {lang.desc}: <input maxlength="30" value="{0}" name="dsc[]" >
+  {lang.txt}: <input maxlength="10" value="{2}" name="txt[]" style="width: 70px" >
+  {lang.file}: <select name="file[]" onchange="Pr(this)">
+	{GLOBALS.files}
+	</select>
+	<input type="image" src="img/icon/add.png" alt="+" >
+	<input type="image" src="img/icon/del.png" alt="-" >
+	<input type="image" src="img/icon/up.png" alt="UP" >
+	<input type="image" src="img/icon/down.png" alt="DOWN" >
+</div><!-- STOP --></div>
+
+<div style="text-align: center">
+	<br >
+	<input type="button" value="{lang.addemo}" onclick="f.addItem()" >
+	<input type="submit" value="{lang.save}" >
+</div>
+
+</div>
+</form>
+
+<div id="tpl" style="display: none; text-align: center">
+	<img src="" alt="E" >
+  {lang.desc}: <input maxlength="30" name="dsc[]" >
+  {lang.txt}: <input maxlength="10" name="txt[]" style="width: 70px" >
+  {lang.file}: <select name="file[]" onchange="Pr(this)">
+	{files}
+	</select>
+	<input type="image" src="img/icon/add.png" alt="+" >
+	<input type="image" src="img/icon/del.png" alt="-" >
+	<input type="image" src="img/icon/up.png" alt="UP" >
+	<input type="image" src="img/icon/down.png" alt="DOWN" >
+</div>
+
+<script type="text/javascript">
+var x = document.getElementsByClassName('item');
+var l = x.length;
+for(var i=0;i<l;++i)
+{
+	x[i].getElementsByTagName('select')[0].value = x[i].getElementsByTagName('img')[0].attributes['src'].value.substring(8)
+}
+f = new Fragment('items',{depth:1,html:$('tpl')});
+function Pr(x) { x.parentNode.getElementsByTagName('img')[0].src = 'img/emo/'+x.value }
+$('tpl').getElementsByTagName('img')[0].src = $('items').getElementsByTagName('img')[0].src;
+</script>

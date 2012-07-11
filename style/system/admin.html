@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{LANG}">
+<head>
+	<title>{PAGE TITLE} - {MAIN TITLE}</title>
+	<meta name="robots" content="noindex">
+	<base href="{URL}">
+	<link rel="stylesheet" type="text/css" href="style/system/styles.css">
+	<link rel="stylesheet" type="text/css" href="style/system/admin.css">
+	<script type="text/javascript" src="lib/js.js"></script>
+</head>
+<body>
+<header>
+	<a href="" class="logoTop"><img src="{cfg.logo}" alt="{MAIN TITLE}"></a>
+	<div id="userOptions">
+	<b><a href="url(user)">{user.login}</a></b>
+	<!-- IF user.pms -->
+	<a href="url(pms)" class="mail">{lang.pms} ({user.pms})</a>
+	<!-- ELSE -->
+	<a href="url(pms)">{lang.pms}</a>
+	<!-- END -->
+	<a href="url(login/off)">{lang.logout}</a>
+</div>
+</header>
+<nav>
+	<a href=".">{lang.mainPage}</a>
+	<a href="admin">{lang.summary}</a>
+	<a href="url(edit)">{lang.mantxt}</a>
+</nav>
+<div id="all">
+	<div id="main" class="admin" style="overflow:visible">{CONTENT}</div>
+	<div id="left">
+		<div class="mh">Menu</div>
+		<div class="admenu">
+			<!--
+			<a href="url(admin:cats)" class="menuCats">Foldery</a>
+			<a href="url(admin:polls)" class="menuPolls">Ankiety</a>
+			<a href="url(admin:pages)" class="menuPages">Wolne strony</a>
+			<a href="url(admin:users)" class="menuUsers">Użytkownicy</a>
+			<a href="url(admin:groups)" class="menuUsers">Grupy użytkowników</a>
+			<a href="url(admin:log)" class="menuLog">Zdarzenia systemowe</a>
+			<a href="url(admin:mail)" class="menuMail">Korespondencja seryjna</a>
+			<a href="url(admin:config)" class="menuConfig">Ustawienia witryny</a>
+			<a href="url(admin:menu)" class="menuMenu">Bloki menu</a>
+			<a href="url(admin:db)" class="menuDb">Kopia bazy danych</a>
+			<a href="url(admin:plugins)" class="menuPlugins">Rozszerzenia</a>
+			-->
+			<!-- START menu -->
+			<a href="{url}" class="menu-{class}">{text}</a>
+			<!-- STOP -->
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="copyright">&copy; 2005-2012 COMPMaster</div>
+	<div class="links">F3Site 2012 | PHP {PHP_VERSION} | {PHP_OS}</div>
+</footer>
+</body>
+</html>

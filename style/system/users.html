@@ -1,0 +1,64 @@
+<h1>{lang.users} ({total})</h1>
+<table cellspacing="1" class="tb">
+<tbody>
+<tr>
+	<th><a href="{login_url}">{lang.login}</a></th>
+	<th><a href="{last_url}">{lang.from}</a></th>
+	<th><a href="{joined_url}">{lang.joined}</a></th>
+	<th><a href="{level_url}">{lang.range}</a></th>
+	<th style="width: 20px"><img src="img/icon/group.png" alt="users" width="16" height="16" ></th>
+</tr>
+
+<!-- START users -->
+<tr>
+	<td>{num}. <a href="{url}">{login}</a></td>
+	<td align="center">{city}</td>
+	<td align="center">{date}</td>
+	<td align="center">{level}</td>
+	<td align="center"><img src="img/icon/{sex}.png" alt="{sex}" width="16" height="16" ></td>
+
+</tr>
+<!-- STOP -->
+
+<!-- IF pages -->
+<tr>
+	<td colspan="5" class="pages eth" style="padding: 9px">{lang.page}: {pages}</td>
+</tr>
+<!-- END -->
+
+</tbody>
+</table>
+
+<!-- IF find -->
+
+<form method="get" id="sf" action="">
+<h1>{lang.search}</h1>
+<div class="box" style="text-align: center">
+	<table style="width: 99%">
+	<tr>
+		<td>
+			<label>{lang.login} {lang.cont}:<br >
+			<input name="sl" maxlength="40" value="{find_login}" ></label>
+		</td>
+		<td>
+			<label>{lang.from}<br >
+			<input name="pl" maxlength="50" value="{find_place}" ></label>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label>{lang.wwwp}:<br >
+			<input name="l" maxlength="40" value="{find_www}" ></label>
+		</td>
+		<td>
+			<label>Gadu-Gadu:<br >
+			<input name="gg" maxlength="11" value="{find_gg}" ></label>
+		</td>
+	</tr>
+	</table>
+	<input type="submit" value="OK" >
+</div>
+<input type="hidden" name="id" value="{id}" >
+</form>
+
+<!-- END -->

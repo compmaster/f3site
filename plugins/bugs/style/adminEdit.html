@@ -1,0 +1,70 @@
+<form action="" method="post" f3:array="cat">
+<h1>{title}</h1>
+<table cellspacing="1" class="tb">
+<tr>
+	<td style="width: 25%"><b>{lang.title}</b></td>
+	<td><input size="30" name="name" maxlength="40" value="{cat.name}" /></td>
+</tr>
+<tr>
+	<td><b>{lang.desc}:</b></td>
+	<td><input size="50" maxlength="80" value="{cat.dsc}" name="dsc" /></td>
+</tr>
+<tr>
+	<td><b>{lang.section}:</b></td>
+	<td><select name="sect">
+		<option value="0">{lang.noSect}</option>
+
+		<!-- START sect -->
+		<!-- IF this -->
+		<option value="{id}" selected="selected">{title}</option>
+		<!-- ELSE -->
+		<option value="{id}">{title}</option>
+		<!-- END -->
+		<!-- STOP -->
+
+	</select></td>
+</tr>
+<tr>
+	<td><b>{lang.access}:</b></td>
+	<td><select name="see" style="text-transform: uppercase">
+		<option value="1">{lang.on}</option>
+		{langs}
+		<option value="2">{lang.off}</option>
+	</select></td>
+</tr>
+<tr>
+	<td><b>{lang.rate}:</b></td>
+	<td>
+		<label><input type="radio" name="rate" value="1" />
+		<img src="plugins/bugs/up.png" alt="UP" />
+		<img src="plugins/bugs/down.png" alt="DOWN" /></label><br />
+		<label><input type="radio" name="rate" value="2" /> 1 - 5</label><br />
+		<label><input type="radio" name="rate" value="0" /> {lang.off}</label>
+	</td>
+</tr>
+<tr>
+	<td><b>{lang.bugsWho}</b></td>
+	<td><input name="post" size="50" value="{cat.post}" /><small>{lang.bugsWho2}</small></td>
+</tr>
+<tr>
+	<td><b>{lang.info}:</b></td>
+	<td>
+		<textarea name="text" cols="50" rows="7" style="width: 99%">{clean: cat.text}</textarea>
+	</td>
+</tr>
+<tr>
+	<td colspan="2" class="eth">
+		<input type="button" value="{lang.preview}" onclick="if(e)e.preview()" />
+		<input type="submit" value="OK" />
+	</td>
+</tr>
+</table>
+</form>
+<script type="text/javascript">
+var e;
+var f = document.forms[0];
+f[0].focus()
+f['text'].onfocus = function() { e = new Editor(this); this.rows=15; this.onfocus = undefined }
+include('lang/' + document.documentElement.lang + '/edit.js')
+include('lib/editor.js')
+</script>

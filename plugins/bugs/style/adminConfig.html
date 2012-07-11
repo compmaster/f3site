@@ -1,0 +1,52 @@
+<form action="" method="post" f3:array="cfg" f3:mode="isset">
+<h1>{lang.opt}</h1>
+<table cellspacing="1" class="tb">
+<tr>
+	<td style="width: 40%"><b>{lang.bugsOn}:</b></td>
+	<td><input name="bugsOn" type="checkbox" /></td>
+</tr>
+<tr>
+	<td><b>{lang.bugsNum}:</b></td>
+	<td><input name="bugsNum" value="{cfg.bugsNum}" size="5" type="number" min="1" /></td>
+</tr>
+<tr>
+	<td><b>{lang.bugsEdit}:</b><small>{lang.bugsEdit2}</small></td>
+	<td><input name="bugsEdit" type="checkbox" /></td>
+</tr>
+<tr>
+	<td><b>{lang.bugsMod}:</b><small>{lang.bugsMod2}</small></td>
+	<td><input name="bugsMod" type="checkbox" /></td>
+</tr>
+<tr>
+	<td><b>{lang.bugsVote}:</b></td>
+	<td><input name="bugsVote" type="checkbox" /></td>
+</tr>
+<tr>
+	<td><b>{lang.catIntro}:</b></td>
+	<td>
+		<label><input name="bugsOver" type="checkbox" /> {lang.overList}</label><br />
+		<label><input name="bugsWhile" type="checkbox" /> {lang.overForm}</label>
+	</td>
+</tr>
+<tr>
+	<th colspan="2">{lang.bugsIntro}</th>
+</tr>
+<tr>
+	<td colspan="2" align="center">
+		<textarea name="bugsIntro" cols="50" rows="8" style="width: 99%">{clean: cfg.bugsIntro}</textarea>
+	</td>
+</tr>
+<tr>
+	<td colspan="2" class="eth">
+		<input type="button" value="{lang.preview}" onclick="if(e) e.preview()" />
+		<input type="submit" value="{lang.save}" />
+	</td>
+</tr>
+</table>
+</form>
+<script type="text/javascript">
+var f = document.forms[0], e;
+f.bugsIntro.onfocus = function() { e = new Editor(this); this.rows=15; this.onfocus = undefined }
+include('lang/' + document.documentElement.lang + '/edit.js')
+include('lib/editor.js')
+</script>

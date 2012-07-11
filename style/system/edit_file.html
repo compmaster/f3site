@@ -1,0 +1,76 @@
+<form action="" id="file" method="post" f3:array="file">
+<h1>{this.title}</h1>
+
+<table cellspacing="1" class="tb">
+<tr>
+	<td style="width: 31%"><b>1. {lang.cat}:</b></td>
+	<td><select name="cat"><option value="0">{lang.choose}</option>{cats}</select></td>
+</tr>
+<tr>
+	<td><b>2. {lang.title}:</b></td>
+	<td><input maxlength="50" size="40" name="name" value="{file.name}" ></td>
+</tr>
+<tr>
+	<td><b>3. {lang.publish}:</b></td>
+	<td><input type="checkbox" name="access" ></td>
+</tr>
+<tr>
+	<td><b>4. {lang.priot}:</b></td>
+	<td><select name="priority">
+		<option value="1">{lang.high}</option>
+		<option value="2">{lang.normal}</option>
+		<option value="3">{lang.low}</option>
+	</select></td>
+</tr>
+<tr>
+	<td><b>5. {lang.desc}:</b></td>
+	<td><textarea name="dsc" style="width: 99%">{file.dsc}</textarea></td>
+</tr>
+<tr>
+	<td><b>6. {lang.file}:</b></td>
+	<td>
+		<input name="file" maxlength="230" value="{file.file}" size="30" >
+		<!-- IF fileman -->
+		<input type="button" value="{lang.files} &raquo;" onclick="fileman('files',this.form.file)" >
+		<!-- END -->
+	</td>
+</tr>
+<tr>
+	<td><b>7. {lang.size}:</b></td>
+	<td><input name="size" maxlength="20" value="{file.size}" ></td>
+</tr>
+<tr>
+	<td><b>8. {lang.author}:</b><br ><small>{lang.nameid}</small></td>
+	<td><input name="author" maxlength="30" value="{file.author}" ></td>
+</tr>
+<tr>
+	<th colspan="2">{lang.fulld}</th>
+</tr>
+<tr>
+	<td colspan="2" align="center">
+		<textarea name="full" rows="15" style="width: 100%">{clean: file.fulld}</textarea>
+	</td>
+</tr>
+<tr>
+	<td class="eth" colspan="2">
+		<input type="button" value="{lang.descPreview}" onclick="e.preview()" >
+		<input type="submit" value="{lang.save}" style="font-weight: bold" >
+		<!-- IF id -->
+		<input type="submit" name="asNew" value="{lang.asNew}" >
+		<!-- END -->
+	</td>
+</tr>
+</table>
+</form>
+<script type="text/javascript">
+f = document.forms['file'];
+f.onsubmit = function()
+{
+	if(f.name.value==0) { f.name.focus(); return false }
+	if(f.cat.value==0) return confirm('{lang.noCat}')
+}
+if(f[0].value == 0) f[0].focus(); else f[1].focus();
+e = new Editor(f.full);
+e.protect();
+include('lib/forms.js');
+</script>

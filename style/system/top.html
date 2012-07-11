@@ -1,0 +1,37 @@
+<!-- Links for logged in user -->
+<!-- IF UID -->
+
+<div id="userOptions">
+	<b><a href="url(user)">{user.login}</a></b>
+
+	<!-- IF user.pms -->
+	<b><a href="url(pms)" class="mail">{lang.pms} <blink>({user.pms})</blink></a></b>
+	<!-- ELSE -->
+	<a href="url(pms)">{lang.pms}</a>
+	<!-- END -->
+
+	<!-- IF IS_EDITOR -->
+	<a href="url(edit)">{lang.mantxt}</a>
+	<!-- END -->
+
+	<!-- IF IS_ADMIN -->
+	<a href="admin">{lang.cpanel}</a>
+	<!-- END -->
+
+	<a href="url(account)">{lang.upanel}</a>
+	<a href="url(login/off)">{lang.logout}</a>
+</div>
+
+<!-- Login form -->
+<!-- ELSE -->
+
+<div id="loginTopForm">
+	<form action="url(login)" method="post">
+		<input name="u" class="text" placeholder="{lang.login}">
+		<input name="p" class="text" type="password" placeholder="{lang.pass}">
+		<input type="submit" value="{lang.logme}" class="buttonBlue">
+		<input type="submit" name="reg" value="{lang.regme}" class="buttonOrange">
+	</form>
+</div>
+
+<!-- END -->

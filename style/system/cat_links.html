@@ -1,0 +1,29 @@
+<h1>{cat.name}</h1>
+<table cellspacing="1" class="tb items link">
+<tbody>
+
+<!-- START links -->
+<tr>
+	<td><h3>{num}. 
+	
+		<!-- IF nw -->
+		<a href="{url}" target="_blank">{title}</a>
+		<!-- ELSE -->
+		<a href="{url}">{title}</a>
+		<!-- END -->
+
+		</h3><small>{desc}
+
+		<!-- IF views --><div>{lang.disps}: {views}</div><!-- END -->
+
+		</small>
+	</td>
+</tr>
+<!-- STOP -->
+
+<!-- IF pages -->
+<tr><th class="pages">{pages}</th></tr>
+<!-- END -->
+
+</tbody>
+</table>

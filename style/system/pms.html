@@ -1,0 +1,25 @@
+<h1>{lang.pm3}</h1>
+<table cellspacing="1" class="tb">
+<tr>
+	<td>
+		<div style="float: right; text-align: center; width: 50%">
+			{lang.pm15}{size} / {limit}
+			<div style="width: 200px; border: 1px solid #CCCCCC; margin: 9px auto">
+				<div class="pollstrip" style="width: {quota}%"></div>
+			</div>
+			<a href="url(pms/edit)">
+				<button onclick="location=this.parentNode.href; return false">{lang.write}</button>
+			</a>
+		</div>
+		<div>
+			<b>{lang.fold}:</b>
+			<ul style="list-style-image: url(img/icon/folder.png); margin: 3px">
+				<li><a href="url(pms)">{lang.inbox}</a></li>
+				<li><a href="url(pms/sent)">{lang.sent}</a></li>
+				<li><a href="url(pms/topics)">{lang.topics}</a></li>
+				<li><a href="url(pms/drafts)">{lang.drafts}</a></li>
+			</ul>
+		</div>
+	</td>
+</tr>
+</table>

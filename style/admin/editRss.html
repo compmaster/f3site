@@ -1,0 +1,37 @@
+<form action="" method="post" f3:array="rss">
+<h1>{this.title}</h1>
+
+<table cellspacing="1" class="tb">
+<tr>
+	<td style="width: 150px"><b>{lang.title}:</b></td>
+	<td><input name="name" value="{rss.name}" size="50" maxlength="50" ></td>
+</tr>
+<tr>
+	<td><b>{lang.desc}:</b></td>
+	<td><input name="dsc" value="{rss.dsc}" size="50" maxlength="99" ></td>
+</tr>
+<tr>
+	<td><b>{lang.cat}:</b></td>
+	<td><select name="cat"><option value="0">- - {lang.allNews} - -</option>{cats}</select></td>
+</tr>
+<tr>
+	<td><b>{lang.lang}:</b></td>
+	<td><select name="lang" style="text-transform: uppercase">{langs}</select></td>
+</tr>
+<tr>
+	<td><b>{lang.adr}:</b><br ><small>{lang.pageRss}</small></td>
+	<td><input type="url" name="url" value="{rss.url}" size="40" maxlength="80" ></td>
+</tr>
+<tr>
+	<td><b>{lang.itemNum}:</b></td>
+	<td><input type="number" min="1" max="99" name="num" value="{rss.num}" size="5" type="number" ></td>
+</tr>
+<tr>
+	<td><b>{lang.opt}:</b></td>
+	<td><label><input type="checkbox" name="auto" > {lang.autoRss}</label></td>
+</tr>
+<tr>
+	<td colspan="2" class="eth"><input type="submit" value="{lang.save}" ></td>
+</tr>
+</table>
+</form>

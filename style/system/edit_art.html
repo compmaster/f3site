@@ -1,0 +1,160 @@
+<form id="art" method="post" f3:array="art">
+<h1>{this.title}</h1>
+
+<table class="tb" id="at">
+<tr>
+	<td style="width: 30%"><b>1. {lang.cat}:</b></td>
+	<td><select name="cat"><option value="0">{lang.choose}</option>{cats}</select></td>
+</tr>
+<tr>
+	<td><b>2. {lang.title}:</b></td>
+	<td><input maxlength="50" name="name" style="width: 98%" value="{art.name}" required></td>
+</tr>
+<tr>
+	<td><b>3. {lang.publish}:</b></td>
+	<td><input type="checkbox" name="access"></td>
+</tr>
+<tr>
+  <td><b>4. {lang.priot}:</b></td>
+  <td><select name="priority">
+		<option value="1">{lang.high}</option>
+		<option value="2">{lang.normal}</option>
+		<option value="3">{lang.low}</option>
+	</select></td>
+</tr>
+<tr>
+	<td><b>5. {lang.desc}:</b></td>
+	<td><textarea name="dsc" cols="40" rows="2">{art.dsc}</textarea></td>
+</tr>
+<tr>
+	<td><b>6. {lang.author}:</b><br><small>{lang.nameid}</small></td>
+	<td><input name="author" value="{art.author}" maxlength="30" list="authors"></td>
+</tr>
+<tr>
+	<th colspan="2">{lang.page}</th>
+</tr>
+<tr>
+	<td align="center" colspan="2" id="artbody" class="tabify">
+	<!-- START full -->
+	<div>
+		<textarea name="txt[]" style="width: 100%" cols="50" rows="25">{clean: txt}</textarea>
+		<fieldset>
+			<label><input type="checkbox" name="emo[{KEY}]" f3:var="i1.emo"> {lang.emo}</label>
+			<label><input type="checkbox" name="br[{KEY}]" f3:var="i1.br"> {lang.br}</label>
+			<label><input type="checkbox" name="code[{KEY}]" f3:var="i1.code"> {lang.hl}</label>
+		</fieldset>
+	</div>
+	<!-- STOP -->
+	</td>
+</tr>
+<tr>
+	<td class="eth" colspan="2">
+		<input type="button" value="+" name="N">
+		<input type="button" value="{lang.preview}" name="P">
+		<input type="submit" value="{lang.save}" style="font-weight: bold">
+		<!-- IF id -->
+		<input type="submit" name="asNew" value="{lang.asNew}">
+		<!-- END -->
+	</td>
+</tr>
+</table>
+</form>
+
+<datalist id="authors">
+	<!-- START author -->
+	<option>{ITEM}</option>
+	<!-- STOP -->
+</datalist>
+
+<script type="text/javascript">(function(){
+var f = document.forms['art'],
+area = f['txt[]'].name ? [f['txt[]']] : f['txt[]'],
+num = area.length,
+tab = $('at'),
+e = [],
+C = function(a,b,c,d)
+{
+	d = d.replace(/&/g, '&amp;');
+	d = d.replace(/</g, '&lt;');
+	return '<'+b+c+'>'+d.replace(/>/g, '&gt;')+'</'+b+'>';
+};
+f.onsubmit = function()
+{
+	if(f.name.value==0) { f.name.focus(); return false }
+	if(f.cat.value==0) return confirm('{lang.noCat}')
+};
+f.P.onclick = function()
+{
+	var txt,i;
+	for(i in e)
+	{
+		txt = area[i].value.replace(/<(pre)([^>]*)>((.|\n)+?)<\/pre>/img, C);
+		txt = txt.replace(/<(code)([^>]*)>((.|\n)+?)<\/code>/img, C);
+		e[i].preview({EMOTS:f['emo['+i+']'].checked, NL:f['br['+i+']'].checked}, false, txt)
+	}
+};
+f.N.onclick = function()
+{
+	var c = function(x) { return document.createElement(x) },q,
+	t = c('tbody'),
+	r = c('tr'),
+	h = c('th'),
+	R = c('tr'),
+	d = c('td'),
+	a = c('textarea'),
+	s = c('fieldset'),
+	o1 = c('input'),
+	o2 = c('input'),
+	o3 = c('input'),
+	l1 = c('label'),
+	l2 = c('label'),
+	l3 = c('label');
+	h.colSpan = d.colSpan = 2;
+	h.innerHTML = '{lang.page} '+ (num+1);
+	d.align = 'center';
+	a.name = 'txt[]';
+	a.cols = 50;
+	a.rows = 25;
+	a.style.width = '100%';
+	o1.type = o2.type = o3.type = 'checkbox';
+	o1.name = 'emo['+num+']';
+	o1.checked = f['emo['+(num-1)+']'].checked;
+	o2.name = 'br['+num+']';
+	o2.checked = f['br['+(num-1)+']'].checked;
+	o3.checked = f['code['+(num-1)+']'].checked;
+	o3.name = 'code['+num+']';
+	l1.appendChild(o1);
+	l1.appendChild(document.createTextNode(' {lang.emo} '));
+	l2.appendChild(o2);
+	l2.appendChild(document.createTextNode(' {lang.br} '));
+	l3.appendChild(o3);
+	l3.appendChild(document.createTextNode(' {lang.hl} '));
+	s.appendChild(l1);
+	s.appendChild(l2);
+	s.appendChild(l3);
+	d.appendChild(a);
+	d.appendChild(s);
+	R.appendChild(d);
+	r.appendChild(h); 
+	t.appendChild(r);
+	t.appendChild(R);
+	tab.insertBefore(t, tab.tFoot);
+	area[num++] = a;
+	e.push(q = new Editor(a)); o1.checked && q.emots();
+	o1.onclick = function() { q.emots(this.checked) };
+	a.focus()
+};
+for(var i=0; i<num; i++)
+{
+	e[i] = new Editor(area[i]);
+	with(f['emo['+i+']'])
+	{
+		var x = e[i];
+		onclick = function() { x.emots(this.checked) };
+		checked && x.emots()
+	}
+}
+e[0].protect()
+if(f[0].value==0) f[0].focus(); else f[1].focus()
+})()
+include('tabs', function(){ new Tabs({o:}) })</script>

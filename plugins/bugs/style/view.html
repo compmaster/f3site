@@ -1,0 +1,127 @@
+<div class="hint" id="chst">
+	<div class="title">{lang.status}:</div>
+	<ul class="menulist">
+		<li onclick="St(1)">{lang.S1}</li>
+		<li onclick="St(2)">{lang.S2}</li>
+		<li onclick="St(3)">{lang.S3}</li>
+		<li onclick="St(4)">{lang.S4}</li>
+		<li onclick="St(5)">{lang.S5}</li>
+	</ul>
+</div>
+
+<div id="path">
+
+	<!-- IF edit -->
+	<div style="float: right"><a class="edit" href="{edit}">{lang.edit}</a></div>
+	<!-- END -->
+
+	<a href="{mainURL}">{lang.TOC}</a> &raquo;
+	<a href="{catURL}">{bug.catName}</a>
+</div>
+
+<h1>{bug.name}</h1>
+<table class="tb">
+<tr>
+	<th style="width: 120px; text-align: right">{lang.added}:</th>
+	<td>{bug.date}</td>
+</tr>
+<tr>
+	<th style="text-align: right">{lang.wrote}:</th>
+	<td>{bug.who}</td>
+</tr>
+<tr>
+	<th style="text-align: right">{lang.status}:</th>
+	<td><span id="st">{bug.status}</span>
+
+		<!-- IF editStatus -->
+		<img src="plugins/bugs/d.png" alt="+" onclick="hint('chst',133,132,1)" style="cursor: pointer">
+		<script type="text/javascript">
+		function St(x)
+		{
+			new Request('request.php?go=bugs/status',$('st')).post({id:{bug.ID},s:x})
+		}
+		</script>
+		<!-- END -->
+
+	</td>
+</tr>
+<tr>
+	<th style="text-align: right">{lang.level}:</th>
+	<td>{bug.level}</td>
+</tr>
+
+<!-- IF hands -->
+<tr>
+	<th align="right">{lang.rate}:</th>
+	<td>
+		<span id="handUp">{bug.pos}</span>
+		<span id="handDown">{bug.neg}</span>
+	</td>
+</tr>
+<!-- END -->
+
+<!-- IF stars -->
+<tr>
+	<th style="text-align: right">{lang.rate}:</th>
+	<td>
+		<div class="rate avg{bug.mark} by" id="BST">
+			<input type="submit" value="1" class="r1">
+			<input type="submit" value="2" class="r2">
+			<input type="submit" value="3" class="r3">
+			<input type="submit" value="4" class="r4">
+			<input type="submit" value="5" class="r5">
+		</div>
+		{lang.rates}: <span id="MarkNum">{bug.marks}</span>
+	</td>
+</tr>
+<!-- END -->
+
+<tr>
+	<th style="text-align: right">{lang.bugsEnv}:</th>
+	<td>{bug.env}</td>
+</tr>
+<tr>
+	<td colspan="2" class="txt">{bug.text}</td>
+</tr>
+</table>
+
+<!-- IF canVote -->
+<script type="text/javascript">
+function RateBug(x,o)
+{
+	if(BVoted) return;
+	new Request('request.php?go=bugs/vote','',{done:function(t)
+	{
+		if(t.indexOf(']')>0)
+		{
+			t = getJSON(t);
+			o.className = 'rate by avg'+t[0]
+			$('MarkNum').innerHTML = t[1]
+		}
+		else
+		{
+			if(t=='OK')
+			{
+				o.innerHTML = parseInt(o.innerHTML)+1
+			}
+			else alert(t)
+		}
+	}}).post({id:{bug.ID},v:x}); BVoted = 1
+}
+if($('handUp'))
+{
+	$('handUp').onclick = function() { RateBug(5,this) }
+	$('handDown').onclick = function() { RateBug(1,this) }
+}
+else if($('BST'))
+{
+	$('BST').onclick = function(e)
+	{
+		e = e || event
+		var o = e.srcElement || e.target
+		if(o.value) RateBug(o.value,this)
+	}
+}
+BVoted = 0;
+</script>
+<!-- END -->

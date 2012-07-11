@@ -1,0 +1,1 @@
+<?php $emodata=array('0'=>array('0'=>':)','1'=>'smile.png','2'=>':)',),'1'=>array('0'=>':D','1'=>'happy.png','2'=>':D',),'2'=>array('0'=>':(','1'=>'unhappy.png','2'=>':(',),'3'=>array('0'=>':O','1'=>'surprised.png','2'=>':O',),'4'=>array('0'=>':P','1'=>'tongue.png','2'=>':P',),'5'=>array('0'=>':]','1'=>'waii.png','2'=>':]',),);

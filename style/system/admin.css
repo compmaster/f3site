@@ -1,0 +1,63 @@
+#all {padding-right: 10px !important}
+.admenu {
+	border-left: 1px solid #bfbfbf;
+	border-right: 1px solid #bfbfbf;
+	border-bottom: 1px solid #bfbfbf;
+	background: url(img/boxBg.jpg) repeat-x #fff;
+	padding: 9px 0 15px 0;
+	overflow: hidden;
+	margin-bottom: 10px;
+	border-radius: 0 0 5px 5px
+}
+.admenu a {
+	display: block;
+	color: #4d4d4d;
+	text-decoration: none;
+	line-height: 22px;
+	padding: 0 0 0 30px;
+	border-bottom: 1px solid #eaeaea;
+	background-repeat: no-repeat;
+	background-position: 5px 3px;
+}
+.admenu a:hover {
+	background-color: #ededed;
+}
+.menu-rss {background-image: url(../../img/icon/rss.png)}
+.menu-cats {background-image: url(../../img/icon/folder.png)}
+.menu-polls {background-image: url(../../img/icon/poll.png)}
+.menu-menu {background-image: url(../../img/icon/app.png)}
+.menu-pages {background-image: url(../../img/icon/pages.png)}
+.menu-users {background-image: url(../../img/icon/group.png); margin-top: 8px}
+.menu-groups {background-image: url(../../img/icon/group.png)}
+.menu-log {background-image: url(../../img/icon/flag.png)}
+.menu-mailing {background-image: url(../../img/icon/mail.png); margin-bottom: 8px}
+.menu-config {background-image: url(../../img/icon/cog.png)}
+.menu-db {background-image: url(../../img/icon/compress.png)}
+.menu-plugins {background-image: url(../../img/icon/plugin.png); margin-top: 8px}
+
+.imageset {
+	background-color: lightyellow;
+	border: 1px solid olive;
+	padding: 5px;
+	margin: 8px
+}
+.imageset input {
+  display:none;
+}
+.imageset img {
+  cursor: pointer;
+  border: 2px solid transparent;
+	opacity: 0.5
+}
+.imageset input:checked + img {
+  border: 2px solid #f00;
+	transition: all 1s ease-out;
+	opacity: 1
+}
+.imageset img:hover {
+	opacity: 1
+}
+#actions {position: absolute; top: -38px; right: 5px}
+#actions a {color: #fff; margin-left: 30px; padding-top: 8px; padding-bottom: 8px}
+
+td>small {display: block}

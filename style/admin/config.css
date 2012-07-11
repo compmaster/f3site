@@ -1,0 +1,25 @@
+ul.config {
+	overflow: hidden;
+	list-style: none;
+	margin: 0;
+	padding: 0
+}
+ul.config li {
+	width: 250px;
+	height: 67px;
+	padding: 0 75px 0 0;
+	background-repeat: no-repeat;
+	float: left
+}
+ul.config a {
+	padding: 16px 0 16px 60px;
+	display: block;
+}
+li.c1 {background-image: url(../../img/admin/spanner.png)}
+li.c2 {background-image: url(../../img/admin/paper.png)}
+li.c3 {background-image: url(../../img/admin/mail.png)}
+li.c4 {background-image: url(../../img/admin/users.png)}
+li.c5 {background-image: url(../../img/admin/smile.png)}
+li.c6 {background-image: url(../../img/admin/censor.png)}
+li.c7 {background-image: url(../../img/admin/tabs_48.png); background-position: 1px 0px}
+li.c8 {background-image: url(../../img/admin/latest.png); background-position: 5px 1px}

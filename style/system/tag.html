@@ -1,0 +1,18 @@
+<!-- Tags displayed under articles, files, etc. -->
+<!-- To modify tag cloud or item list, open tags.html -->
+
+<div id="tags">
+
+	<!-- IF editTags -->
+	<a class="tags" style="float: right; cursor: help" onclick="TAGS.manage({urls},this)">{lang.tags}</a>
+	<script type="text/javascript">
+	include('lang/' + document.documentElement.lang + '/edit.js')
+	include('lib/tags.js')
+	</script>
+	<!-- END -->
+
+	<!-- START tag -->
+	<a href="{url}" class="tags">{tag}</a> [{num}]
+	<!-- STOP -->
+
+</div>

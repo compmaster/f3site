@@ -1,0 +1,1 @@
+<?php $cfg+=array('mailon'=>1,'mail'=>'','adr'=>'','mailh'=>1,'smtp'=>'','mailport'=>25,'smtpl'=>'','smtph'=>'',);

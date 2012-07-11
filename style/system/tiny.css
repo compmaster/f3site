@@ -1,0 +1,130 @@
+body {
+	margin: 8px;
+	font-family: Tahoma,sans-serif;
+	font-size: 12px;
+	color: #313131
+}
+pre {
+	background-color: #EFEFE7;
+	border: 1px solid #DBDBCA;
+	overflow: auto;
+	margin: 5px 0;
+}
+blockquote {
+	background-color: #E7EFEF;
+	border: 1px solid #ACC8C8;
+	margin: 5px 0;
+}
+a {color: #23acda; text-decoration: none}
+a:hover {text-decoration: underline}
+img {border: 0; vertical-align: text-bottom}
+h2,h3 {margin: 0; padding: 0; clear: both}
+h2 {color: #2abaea; font-size: 18px}
+h3 {color: #2abaea; font-size: 12px}
+form {margin: 0}
+
+/* HEADERS */ 
+h1 {
+	margin: 0;
+	text-indent: 9px;
+	text-align: left;
+	height: 35px;
+	line-height: 35px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 12px
+	background:url(img/headers.png) #5c5a5b repeat-x 0 0
+}
+.box {
+	border-left: 1px solid #bfbfbf;
+	border-right: 1px solid #bfbfbf;
+	border-bottom: 1px solid #bfbfbf;
+	background:url(img/boxBg.jpg) repeat-x #fff;
+	padding:9px 12px;
+	line-height:18px;
+	text-align:justify;
+	overflow:hidden;
+	margin-bottom:10px
+}
+/* Top round */
+h1 {
+	border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	-khtml-border-radius: 5px 5px 0 0
+}
+/* Bottom round */
+.box {
+	border-radius: 0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+	-khtml-border-radius: 0 0 5px 5px
+}
+/* Both round */
+.info, .error, .warning, .preview, pre, blockquote {
+	padding: 5px;
+	overflow: hidden;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px
+}
+/* Small boxes */
+.info, .error, .warning, .preview {
+	margin-bottom: 8px;
+	border: 1px solid #cdcdcd;
+}
+.error, .warning {
+	background-color: #ffffb0;
+	border: 1px solid #d9c866
+}
+
+/* LISTS */
+ul,ol {margin: 9px; padding-left: 25px}
+ul.go {list-style-image: url(../../img/icon/go.png)}
+ul.gallery {list-style: none; padding: 0; margin: 0}
+ul.gallery li {
+	display: inline-block;
+	width: 30%;
+	padding: 5px;
+	text-align: center;
+	vertical-align: top
+}
+ul.cats {
+	list-style-image: url(../../img/icon/folder.png);
+	overflow: hidden
+}
+ul.cats li {
+	width: 50%;
+	float: left
+}
+.files div {
+	background: url(../../img/icon/file.png) no-repeat 6px 6px;
+	padding: 3px 0 5px 32px;
+	min-height: 32px
+}
+.items td {
+	height: 40px;
+	padding-left: 40px !important
+}
+.art td {background: url(../../img/icon/art.png) no-repeat 5px 50%}
+.link td {background: url(../../img/icon/www.png) no-repeat 9px 50%}
+.items a {font-weight: bold}
+.items h3 {margin: 0}
+
+/* LINKS */
+.edit, .add, .del, .off, .user, .cat, .tags, .quote, .settings, .mail, .cpanel {
+	padding-left: 20px;
+	background-repeat: no-repeat;
+	background-position: -1px
+}
+.del, .off {background-image: url(../../img/icon/del.png)}
+.user {background-image: url(../../img/icon/group.png)}
+.edit {background-image: url(../../img/icon/edit.png); display: block; float: right}
+.add {background-image: url(../../img/icon/add.png)}
+.cat {background-image: url(../../img/icon/folder.png); background-position: 0 -1px}
+.tags {background-image: url(../../img/icon/tag.png); background-position: 1px; padding-top: 1px}
+.quote {background-image: url(../../img/icon/quote.png)}
+.settings {background-image: url(../../img/icon/cog.png)}
+.mail {background-image: url(../../img/icon/mail.png)}
+.cpanel {background-image: url(../../img/icon/key.png)}

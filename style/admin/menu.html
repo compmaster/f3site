@@ -1,0 +1,57 @@
+<div id="actions">
+	<a href="url(admin:editMenu)" class="edit">{lang.addBox}</a>
+	<a href="url(admin:help#menu)" class="help">{lang.help}</a>
+</div>
+
+<form method="post">
+<h1>{lang.nav}</h1>
+
+<table class="tb">
+<tr>
+	<th>{lang.title}</th>
+	<th style="width: 30px">{lang.seq}</th>
+	<th style="width: 100px">{lang.disp}</th>
+	<th style="width: 100px">{lang.page}</th>
+	<th>{lang.opt}</th>
+	<th style="text-transform: uppercase; width: 40px">{lang.del}</th>
+</tr>
+
+<!-- START blocks -->
+<!-- IF group -->
+<tr>
+	<th colspan="6" style="text-transform: uppercase">{group}</th>
+</tr>
+<!-- END -->
+<tr style="text-align: center">
+	<td style="text-align: left">{title}</td>
+	<td>
+		<input name="seq[{id}]" onblur="if(value=='') value=0" size="1" value="{seq}" >
+	</td>
+	<td>
+		<select name="vis[{id}]" f3:var="i1.disp">
+			<option value="1">{lang.on2}</option>
+			{langs}
+			<option value="2">{lang.off2}</option>
+			<option value="3">Admin</option>
+		</select>
+	</td>
+	<td>
+		<input type="radio" name="page[{id}]" value="1" f3:var="i1.page" > &nbsp;
+		<input type="radio" name="page[{id}]" value="2" f3:var="i1.page" >
+	</td>
+	<td>
+		<a href="{url}">{lang.edit}</a>
+	</td>
+	<td>
+		<input type="checkbox" name="x[{id}]" >
+	</td>
+</tr>
+<!-- STOP -->
+
+<tr>
+	<td colspan="6" class="eth">
+		<input type="submit" value="{lang.save}" >
+	</td>
+</tr>
+</table>
+</form>

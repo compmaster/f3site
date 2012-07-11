@@ -1,0 +1,1 @@
+<?php $cfg+=array('bugsOn'=>1,'bugsNum'=>80,'bugsIntro'=>'');

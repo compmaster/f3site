@@ -1,0 +1,53 @@
+<form method="post" f3:array="cfg" f3:mode="isset">
+<h1>{lang.setup}</h1>
+
+<table class="tb">
+<tr>
+	<td><b>System</b></td>
+	<td>{PHP_OS}</td>
+</tr>
+<tr>
+	<td><b>PHP</b></td>
+	<td>{PHP_VERSION}</td>
+</tr>
+<tr>
+	<td><b>{lang.db}</b></td>
+	<td>{db}</td>
+</tr>
+<tr>
+	<td><b>{lang.urls}:</b></td>
+	<td><select name="nice">
+		<option value="1">{lang.url1}</option>
+		<option value="2">{lang.url2}</option>
+		<option value="3">{lang.url3}</option>
+	</select></td>
+</tr>
+<tr>
+	<td><b>{lang.url}</b></td>
+	<td>
+		<input name="url" value="{cfg.url}" size="30" style="font-family:monospace">
+		<input type="button" value="Auto" onclick="document.forms[0].url.value='{prefurl}'">
+	</td>
+</tr>
+<tr>
+	<td><b>{lang.path}</b></td>
+	<td>
+		<input name="path" value="{cfg.path}" size="30" style="font-family:monospace">
+		<input type="button" value="Auto" onclick="document.forms[0].path.value='{prefpath}'">
+	</td>
+</tr>
+<tr>
+	<td class="eth" colspan="2"><input type="submit" value="{lang.save}"></td>
+</tr>
+</table>
+</form>
+<script type="text/javascript">
+f = document.forms[0]
+urlbox = f.nice
+urlbox.now = urlbox.selectedIndex
+urlbox.onchange = function(e)
+{
+	if(this.selectedIndex < 2)
+	if(!confirm('{lang.warn}')) this.selectedIndex = this.now
+}
+</script>

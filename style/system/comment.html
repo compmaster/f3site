@@ -1,0 +1,58 @@
+<!-- IF preview -->
+<h1 class="headerOrange">{lang.preview}</h1>
+<div class="box">{preview}</div>
+<!-- END -->
+
+<form action="{url}" id="comm" method="post">
+<h1>{this.title}</h1>
+
+<table cellspacing="1" class="tb">
+<tbody>
+
+<!-- IF author -->
+<tr>
+	<td><b>{lang.author}:</b></td>
+	<td><input name="author" maxlength="20" value="{comment.author}"></td>
+</tr>
+<!-- END -->
+
+<!-- IF title -->
+<tr>
+	<td style="width: 110px"><b>{lang.title}:</b></td>
+	<td><input name="name" value="{comment.name}" size="30" maxlength="40"></td>
+</tr>
+<!-- END -->
+
+<tr>
+  <td colspan="2" align="center">
+		<textarea name="text" rows="12" cols="60" style="width: 99%">{comment.text}</textarea>
+	</td>
+</tr>
+
+<!-- IF code -->
+<tr>
+	<th colspan="2">{lang.imgcode}</th>
+</tr>
+<tr>
+	<td colspan="2" align="center">{code}</td>
+</tr>
+<!-- END -->
+
+<tr>
+	<td colspan="2" class="eth">
+		<input type="button" value="{lang.preview}" name="prev">
+		<input type="submit" value="{lang.save}" name="save">
+	</td>
+</tr>
+</tbody></table>
+</form>
+
+<!-- IF sblam -->
+<script src="lib/sblam/sblam.js.php"></script>
+<!-- END -->
+
+<script type="text/javascript">
+e = new Editor(document.forms['comm'].text,1)
+e.emots()
+e.protect()
+</script>

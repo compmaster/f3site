@@ -1,0 +1,29 @@
+<form method="post" f3:array="cfg" f3:mode="isset">
+<h1>{lang.latest}</h1>
+
+<table cellspacing="1" class="tb">
+<tr>
+	<td style="width: 250px"><b>{lang.auto}:</b><small>{lang.auto2}</small></td>
+	<td><input type="checkbox" name="newOn"></td>
+</tr>
+<tr>
+	<td><b>{lang.maxnum}:</b><small>{lang.each}</small></td>
+	<td><input type="number" min="1" name="newNum" value="{cfg.newNum}" size="5"></td>
+</tr>
+<tr>
+	<td><b>{lang.types}:</b></td>
+	<td>
+	<!-- START type -->
+		<!-- IF on -->
+		<label><input type="checkbox" name="newTypes[{id}]" checked="checked"> {title}</label><br>
+		<!-- ELSE -->
+		<label><input type="checkbox" name="newTypes[{id}]"> {title}</label><br>
+		<!-- END -->
+	<!-- STOP -->
+	</td>
+</tr>
+<tr>
+	<td class="eth" colspan="2"><input type="submit" value="OK"></td>
+</tr>
+</table>
+</form>

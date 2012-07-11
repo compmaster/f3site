@@ -1,0 +1,185 @@
+<form id="eu" method="post" enctype="multipart/form-data" f3:array="u">
+<h1>{this.title}</h1>
+
+<table class="tb">
+<tbody>
+
+<!-- IF USER IS GUEST -->
+<tr>
+	<th colspan="2">{lang.editup}</th>
+</tr>
+<tr>
+	<td style="width: 200px"><b>{lang.login}:</b><br><small>{lang.logind}</small></td>
+	<td><input name="login" maxlength="30" value="{u.login}" pattern=".{3,30}" required></td>
+</tr>
+<tr>
+	<td><b>{lang.pass}:</b><br><small>{lang.passd}</small></td>
+	<td><input type="password" name="pass" value="{pass}" maxlength="50" required></td>
+</tr>
+<tr>
+	<td><b>{lang.retPass}:</b></td>
+	<td><input type="password" name="pass2" value="{pass2}" maxlength="50" required></td>
+</tr>
+<!-- IF mail -->
+<tr>
+	<td><b>{lang.mail}:</b></td>
+	<td><input type="email" name="mail" value="{u.mail}" maxlength="60" required></td>
+</tr>
+<!-- END -->
+<!-- IF code -->
+<tr>
+	<th colspan="2">{instr}</th>
+</tr>
+<tr>
+	<td colspan="2" style="text-align:center">
+		{code}
+	</td>
+</tr>
+<!-- END -->
+<!-- END -->
+
+<tr>
+	<th colspan="2">{lang.editus}</th>
+</tr>
+<tr>
+	<td><b>{lang.sex}:</b></td>
+	<td>
+		<select name="sex">
+			<option value="0"> </option>
+			<option value="1">{lang.male}</option>
+			<option value="2">{lang.female}</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td style="width: 200px"><b>{lang.from}:</b></td>
+	<td><input name="city" maxlength="50" value="{u.city}"></td>
+</tr>
+<tr>
+	<td><b>Gadu-Gadu:</b></td>
+	<td><input name="gg" maxlength="15" value="{u.gg}" inputmode="numeric"></td>
+</tr>
+<tr>
+	<td><b>Tlen.pl:</b><br><small>{lang.tlenwot}</small></td>
+	<td><input name="tlen" maxlength="50" value="{u.tlen}"></td>
+</tr>
+<tr>
+	<td><b>ICQ:</b></td>
+	<td><input name="icq" maxlength="20" value="{u.icq}" inputmode="numeric"></td>
+</tr>
+<tr>
+	<td><b>Skype:</b></td>
+	<td><input name="skype" maxlength="50" value="{u.skype}"></td>
+</tr>
+<tr>
+	<td><b>Jabber:</b></td>
+	<td><input name="jabber" maxlength="50" value="{u.jabber}"></td>
+</tr>
+<tr>
+	<td><b>{lang.wwwp}:</b></td>
+	<td><input name="www" size="40" maxlength="120" value="{u.www}"></td>
+</tr>
+<tr>
+	<td><b>{lang.opt}:</b></td>
+	<td>
+		<!-- IF mail -->
+		<label><input type="checkbox" name="mvis"> {lang.vismail}</label><br>
+		<!-- END -->
+		<label><input type="checkbox" name="mails"> {lang.getmails}</label><br>
+		<label><input type="checkbox" name="comm"> {lang.allowComm}</label><br>
+		<!-- IF del -->
+		<label><input type="checkbox" name="del" f3:var="0"> {lang.delPhoto}</label>
+		<!-- END -->
+	</td>
+</tr>
+
+<!-- IF photo -->
+<tr>
+	<th colspan="2">{lang.avatar}</th>
+</tr>
+<tr>
+	<td>
+		<b>{lang.curPhoto}:</b><br>
+		<small>{lang.maxWidth}: {width} PX<br>{lang.maxHeight}: {height} PX<br>{lang.maxSize}: {size} KB</small>
+	</td>
+	<td>
+		<img src="{photo}" alt="AVATAR">
+	</td>
+</tr>
+<tr>
+	<td><b>{lang.sendPhoto}:</b></td>
+	<td><input type="file" name="photo"></td>
+</tr>
+<!-- END -->
+
+<tr>
+	<th colspan="2">{lang.abouty}</th>
+</tr>
+<tr>
+	<td colspan="2" style="text-align:center">
+		<textarea name="about" rows="9" cols="45" style="width: 99%">{u.about}</textarea>
+	</td>
+</tr>
+
+<!-- IF USER IS LOGGED IN -->
+<tr>
+	<th colspan="2">{lang.editPass}</th>
+</tr>
+</tbody>
+<tbody id="edit">
+<tr>
+	<td style="width: 200px"><b>{lang.curPass}:</b></td>
+	<td><input type="password" name="curPass" maxlength="50"></td>
+</tr>
+<tr>
+	<td><b>{lang.newPass}:</b><br><small>{lang.passd}</small></td>
+	<td><input type="password" name="pass" value="{pass}" maxlength="50"></td>
+</tr>
+<tr>
+	<td><b>{lang.retPass}:</b></td>
+	<td><input type="password" name="pass2" value="{pass}" maxlength="50"></td>
+</tr>
+<!-- IF mail -->
+<tr>
+	<td><b>{lang.mail}:</b></td>
+	<td><input name="mail" value="{u.mail}" maxlength="60"></td>
+</tr>
+<!-- END -->
+</tbody>
+<tbody id="goedit" style="display: none; text-align: center; color: blue">
+<tr>
+	<td style="padding: 15px; cursor: pointer" colspan="2">
+		<span>{lang.editPass}</span>
+		<script type="text/javascript">
+		show('edit');
+		$('goedit').style.display = '';
+		$('goedit').onclick = function() { show('edit',1); show(this); f.curPass.focus() }
+		</script>
+	</td>
+</tr>
+</tbody>
+<tbody>
+<!-- END -->
+
+<tr>
+	<td colspan="2" class="eth"><input type="submit" value="OK"></td>
+</tr>
+</tbody>
+</table>
+</form>
+
+<!-- IF sblam -->
+<script src="lib/sblam/sblam.js.php"></script>
+<!-- END -->
+
+<script type="text/javascript">
+f = document.forms['eu'];
+if(f.login) f.login.focus(); else f.sex.focus()
+<!-- IF bbcode -->
+include('lang/' + document.documentElement.lang + '/edit.js')
+include('lib/editor.js')
+include('cache/emots.js')
+f['about'].onfocus = function() { new Editor(this,1).emots(); this.onfocus = null }
+f['pass2'].oninput = function() { f.pass2.className = f.pass.value==f.pass2.value ? '' : 'bad' }
+<!-- END -->
+</script>

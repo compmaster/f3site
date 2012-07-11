@@ -1,0 +1,32 @@
+<h1>Utwórz nowy motyw</h1>
+<form id="look">
+<table class="tb">
+	<tr>
+		<td><b>Rozmiar, krój i kolor tekstu</b></td>
+		<td>
+			<input name="size" type="number" size="5" value="13">
+			<select name="font">
+				<option value="">Domyślny</option>
+				<option>Arial</option>
+				<option>Tahoma</option>
+				<option>Calibri</option>
+			</select>
+			<input type="color">
+		</td>
+	</tr>
+	<tr>
+		<td><b>Kolor tła</b></td>
+		<td><input type="color"></td>
+	</tr>
+	<tr>
+		<td><b>Cytat</b></td>
+		<td><input name="size" type="number" size="5" value="13"></td>
+	</tr>
+</table>
+</form>
+<script>
+var font = document.forms.look.font;
+font.onchange = function() {
+	document.body.style.fontFamily = font.value
+}
+</script>

@@ -1,0 +1,69 @@
+<div id="path">
+	<a href="{groups}">{lang.groups}</a>
+	<!-- IF edit -->
+	<a class="edit" href="{edit}" style="margin-left: 7px">{lang.edit}</a>
+	<!-- END -->
+	<!-- IF join -->
+	<a class="add" href="{join}" style="float: right" id="join">{lang.join}</a>
+	<!-- END -->
+	<!-- IF leave -->
+	<a class="del" href="{leave}" style="float: right" id="join">{lang.leave}</a>
+	<!-- END -->
+</div>
+
+<h1>{this.title}</h1>
+<div class="box">
+
+	<!-- IF user -->
+	<div style="float: right; margin: 0 0 5px 5px">
+	<table cellspacing="5" style="width: 200px">
+	<tr>
+		<th colspan="2">{lang.lastJoin}</th>
+	</tr>
+
+	<!-- START user -->
+	<tr>
+		<td><a href="{url}">{login}</a></td><td>{date}</td>
+	</tr>
+	<!-- STOP -->
+
+	</table>
+	</div>
+	<!-- END -->
+
+	<table cellspacing="5">
+	<!-- IF group.who -->
+	<tr>
+		<th>{lang.founder}:</th>
+		<td>{group.who}</td>
+	</tr>
+	<!-- END -->
+	<tr>
+		<th>{lang.added}:</th>
+		<td>{group.date}</td>
+	</tr>
+	<tr>
+		<th>{lang.group}:</th>
+		<td>{status}</td>
+	</tr>
+	<tr>
+		<th>{lang.total}:</th>
+		<td>{group.num} <!-- IF all --><a href="{all}" class="user">{lang.seeAll}</a></td><!-- END -->
+	</tr>
+	</table>
+
+	{group.dsc}
+</div>
+
+<!-- IF query -->
+<script type="text/javascript">
+$('join').onclick = function()
+{
+	if(confirm('{query}'))
+	{
+		new Request(this.href, null, {scripts: 1}).post({yes: 1})
+	}
+	return false
+}
+</script>
+<!-- END -->

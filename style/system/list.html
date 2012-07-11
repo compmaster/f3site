@@ -1,0 +1,81 @@
+<div id="actions" style="position: absolute; right: 9px; top: 8px">
+	<a href="{addURL}" title="{lang.addItem}"><img src="img/icon/add.png" alt="A" width="16"></a>
+	<a href="javascript:S()" title="{lang.itemList}"><img src="img/icon/find.png" alt="S" width="16"></a>
+	<!-- IF catsURL -->
+	<a href="{catsURL}" title="{lang.edit}"><img src="img/icon/folder.png" alt="C" width="16"></a>
+	<!-- END -->
+</div>
+
+<!-- LISTA -->
+<form action="" method="post">
+<h1>{type}</h1>
+
+<table cellspacing="1" class="tb">
+<tbody>
+<tr>
+	<th>{lang.name}</th>
+	<th style="width: 50px">{lang.on}</th>
+	<th>{lang.opt}</th>
+	<th style="width: 18px"><input type="checkbox" onchange="selAll(this); show('mo',1)"></th>
+</tr>
+
+<!-- START item -->
+
+<tr>
+	<td>{num}. <a href="{url}">{title}</a></td>
+	<td align="center">{on}</td>
+	<td align="center"><a href="{editURL}">{lang.edit}</a></td>
+	<td><input type="checkbox" name="x[{id}]" onchange="show('mo',1)"></td>
+</tr>
+
+<!-- STOP -->
+
+<tr>
+	<td class="eth" colspan="4">
+		<b>{lang.page}:</b> {pages}
+	</td>
+</tr>
+</tbody>
+</table>
+
+<!-- Masowe zmiany -->
+<div id="mo">
+<table cellspacing="1" class="tb">
+<caption>{lang.chopt}</caption>
+<tbody>
+<tr>
+	<td style="width: 35%"><b>1. {lang.cat}:</b></td>
+	<td><select name="cat">
+		<option value="N">{lang.nochg}</option>
+		{cats}
+		<option value="0">{lang.lack}</option>
+	</select></td>
+</tr>
+<tr>
+	<td><b>2. {lang.publish}:</b></td>
+	<td>
+		<label><input type="radio" name="pub" value="N" checked="checked" > {lang.nochg}</label>
+		<label><input type="radio" name="pub" value="1" > {lang.yes}</label>
+		<label><input type="radio" name="pub" value="0" > {lang.no}</label>
+	</td>
+</tr>
+<tr>
+	<td><b>3. {lang.opt}:</b></td>
+	<td><input type="checkbox" name="del"> {lang.chdel}</td>
+</tr>
+<tr>
+	<td class="eth" colspan="2"><input type="submit" value="OK" ></td>
+</tr>
+</tbody>
+</table>
+</div>
+</form>
+
+<script type="text/javascript">
+show('mo')
+function S()
+{
+	var a = prompt("{lang.searp}")
+	if(a !== null) location = location.pathname + "?find=" + a
+}
+</script>

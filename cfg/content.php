@@ -1,0 +1,1 @@
+<?php $cfg+=array('np'=>20,'catStr'=>1,'allCat'=>1,'grate'=>1,'goCat'=>1,'lightbox'=>1,'arate'=>1,'acomm'=>1,'adisp'=>1,'frate'=>1,'fcomm'=>1,'fgets'=>1,'ncomm'=>1,'newsPages'=>1,'newsNum'=>8,'irate'=>1,'icomm'=>1,'inp'=>15,'lcnt'=>1,'linkFull'=>1,'lrate'=>1,'start'=>array('de'=>2,'en'=>2,'pl'=>1,),);

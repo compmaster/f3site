@@ -1,0 +1,26 @@
+<h1>{lang.admin}</h1>
+<div class="box">
+	<p style="margin-top: 0">{intro}</p>
+	<h3>{lang.notepad}</h3>
+	<p style="margin: 8px" id="nt">
+		TO BE IMPROVED IN NEXT ALPHA VERSION
+	</p>
+	<h3>Popularne zadania</h3>
+	<ul class="go">
+		<li><a href="url(admin:editCat)">Utwórz nowy folder</a></li>
+		<li><a href="url(admin:editCat)">Utwórz nową ankietę</a></li>
+		<li><a href="{config}">{lang.setTitle}</a></li>
+		<li><a href="admin/?compile=1">{lang.skinComp}</a></li>
+	</ul>
+</div>
+<script type="text/javascript">
+note = document.createElement('div')
+f = document.forms[0]
+show(f)
+note.innerHTML = (f[0].value == 0) ? '<div class="edit" style="float:none">{lang.edit}</div>' : f[0].innerHTML
+note.style.cursor = 'pointer'
+note.style.whiteSpace = 'pre-wrap'
+note.title = '{lang.edit}'
+note.onclick = function() { show(f); show(note) }
+$('nt').appendChild(note)
+</script>

@@ -1,0 +1,29 @@
+<form method="post">
+<h1>{this.title}</h1>
+<div class="box" style="text-align: center; line-height: 28px">
+
+{lang.wordInfo}
+
+<div id="words" style="margin-top: 8px"><!-- START word --><div>
+	<input maxlength="50" value="{0}" name="bad[]"> {lang.replace} 
+	<input maxlength="50" value="{1}" name="good[]">
+	<input type="image" src="img/icon/add.png" alt="+">
+	<input type="image" src="img/icon/del.png" alt="-">
+</div><!-- STOP --></div>
+
+<input type="button" value="{lang.add}" onclick="f.addItem()">
+<input type="submit" value="{lang.save}">
+
+</div>
+</form>
+
+<div id="tpl" style="display: none">
+	<input maxlength="50" name="bad[]"> {lang.replace} 
+	<input maxlength="50" name="good[]">
+	<input type="image" src="img/icon/add.png" alt="+">
+	<input type="image" src="img/icon/del.png" alt="-">
+</div>
+
+<script type="text/javascript">
+var f = new Fragment('words',{limit:99,html:$('tpl')})
+</script>

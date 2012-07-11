@@ -1,0 +1,51 @@
+<form action="" method="post" f3:array="page">
+<h1>{this.title}</h1>
+
+<table cellspacing="1" class="tb">
+<tr>
+	<td style="width: 35%"><b>1. {lang.name}:</b></td>
+	<td><input name="name" value="{page.name}" maxlength="50" size="50" ></td>
+</tr>
+<tr>
+	<td><b>2. {lang.access}:</b></td>
+	<td><select name="access">
+		<option value="1">{lang.on}</option>
+		<option value="3">{lang.logged}</option>
+		<option value="0">{lang.off}</option>
+	</select></td>
+</tr>
+<tr>
+	<td><b>3. {lang.opt}:</b></td>
+	<td>
+		<label><input type="checkbox" name="o4" f3:var="o4" > {lang.comms}</label><br >
+		<label><input type="checkbox" name="o2" f3:var="o2" > {lang.emoon}</label><br >
+		<label><input type="checkbox" name="o1" f3:var="o1" > {lang.br}</label><br >
+		<label><input type="checkbox" name="o3" f3:var="o3" > {lang.inside}</label><br >
+		<label><input type="checkbox" name="o5" f3:var="o5" > PHP</label>
+	</td>
+</tr>
+</table>
+
+<h1>{lang.text}</h1>
+<table cellspacing="1" class="tb">
+<tr>
+	<td colspan="2" align="center">
+		<textarea name="txt" cols="60" rows="20" style="width: 98%">{clean: page.text}</textarea>
+	</td>
+</tr>
+<tr>
+	<td colspan="2" class="eth">
+		<input type="button" value="{lang.preview}" onclick="e.preview({NL:o1.checked,EMOTS:o2.checked})" >
+		<input type="submit" value="{lang.save}" name="sav" >
+	</td>
+</tr>
+</table>
+</form>
+
+<script type="text/javascript">
+var f = document.forms[0]
+var e = new Editor(f.txt)
+e.emots()
+e.protect()
+f.elements[0].focus()
+</script>

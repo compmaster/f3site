@@ -1,0 +1,189 @@
+<form method="post" f3:array="menu">
+<h1>{this.title}</h1>
+
+<table class="tb">
+<tr>
+	<td style="width: 230px"><b>1. {lang.title}:</b></td>
+	<td><input name="text" maxlength="50" value="{menu.text}"></td>
+</tr>
+<tr>
+	<td><b>2. {lang.access}:</b></td>
+	<td>
+		<select name="disp">
+			<option value="1">{lang.on}</option>
+			{langlist}
+			<option value="2">{lang.hidden}</option>
+			<option value="3">{lang.admins}</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><b>3. {lang.page}:</b></td>
+	<td>
+		<label><input type="radio" name="menu" value="1"> {lang.left}</label> &nbsp;
+		<label><input type="radio" name="menu" value="2"> {lang.right}</label>
+	</td>
+</tr>
+<tr>
+	<td><b>4. {lang.type}:</b></td>
+	<td><select name="type" onchange="linx()">
+		<option value="1">{lang.plain}</option>
+		<option value="3">{lang.urls}</option>
+		<option value="2">{lang.file}</option>
+		<option value="4">{lang.merged}</option>
+		<option value="5">{lang.cats}</option>
+		<option value="6">{lang.latest}</option>
+		<option value="7">{lang.stats}</option>
+		<option value="8">{lang.ipages}</option>
+		<option value="9">{lang.poll}</option>
+		<option value="10">{lang.user}</option>
+	</select></td>
+</tr>
+<tr>
+	<td><b>5. {lang.boxImg}:</b><br><small>{lang.0off}</small></td>
+	<td>
+		<input name="img" maxlength="200" value="{menu.img}">
+		<!-- IF fileman -->
+		<input type="button" value="{lang.files} &raquo;" onclick="fileman('img',this.form.img)">
+		<!-- END -->
+	</td>
+</tr>
+<tr>
+	<td><b>6. {lang.txtfile}</b><br><small>{lang.noLinks}</small></td>
+	<td>
+		<textarea rows="4" name="value" cols="45">{clean: menu.value}</textarea>
+	</td>
+</tr>
+<tr id="L1">
+	<th colspan="2"><b>{lang.items}</b></th>
+</tr>
+<tr id="L2">
+	<td colspan="2" style="text-align:center" id="items">
+	<!-- START item -->
+		<div>
+		{lang.title}: <input name="txt[]" value="{htmlspecialchars: 0}">
+		{lang.type}: <select name="t[]" style="max-width: 200px" f3:var="i1.1">
+			<option value="1">{lang.mainPage}</option>
+			<option value="2">{lang.mod}</option>
+			<option value="3">Folder lub plik</option>
+			<option value="4">Adres zewnetrzny</option>
+			<option value="5">{lang.cat}</option>
+			<option value="6">{lang.fp}</option>
+		</select>
+		<input name="adr[]" value="{2}">
+		<input type="checkbox" name="nw[{KEY}]" title="{lang.openNew}" style="cursor: help" f3:var="i1.3">
+		<input type="image" src="img/icon/add.png" alt="+">
+		<input type="image" src="img/icon/del.png" alt="-">
+		<input type="image" src="img/icon/up.png" alt="UP">
+		<input type="image" src="img/icon/down.png" alt="DOWN">
+	</div><!-- STOP --></td>
+</tr>
+<tr>
+	<td colspan="2" class="eth">
+		<input type="button" value="{lang.addLink}" onclick="f.addItem()" style="width: 99px">
+		<input type="submit" value="{lang.save}" style="font-weight: bold">
+		<input type="submit" value="{lang.saveNew}" name="savenew" style="width: 142px">
+	</td>
+</tr>
+</table>
+</form>
+
+<div id="tpl" style="display: none">
+	{lang.title}: <input name="txt[]">
+	{lang.type}: <select name="t[]" onchange="dis(this,1)">
+		<option value="1">{lang.mainPage}</option>
+		<option value="2">{lang.mod}</option>
+		<option value="3">Folder lub plik</option>
+		<option value="4" selected="selected">Adres zewnetrzny</option>
+		<option value="5">{lang.cat}</option>
+		<option value="6">{lang.fp}</option>
+	</select>
+	<input name="adr[]">
+	<input type="checkbox" name="nw[]" title="{lang.openNew}">
+	<input type="image" src="img/icon/add.png" alt="+">
+	<input type="image" src="img/icon/del.png" alt="-">
+	<input type="image" src="img/icon/up.png" alt="UP">
+	<input type="image" src="img/icon/down.png" alt="DOWN">
+</div>
+
+<script type="text/javascript">
+F = document.forms[0]
+f = new Fragment('items',{depth:1,html:$('tpl')})
+t = F['t[]']||{};
+t = t.type ? [t] : t;
+F[0].focus()
+
+cats = {cats};
+pages = {pages};
+catgroup = document.createElement('optgroup')
+catgroup.label = "{lang.cats}"
+pagegroup = document.createElement('optgroup')
+pagegroup.label = "{lang.ipages}"
+
+for(i in cats)
+{
+	o = document.createElement('option')
+	o.value = 'c'+i
+	o.innerHTML = cats[i]
+	catgroup.appendChild(o)
+}
+
+for(i in pages)
+{
+	o = document.createElement('option')
+	o.value = 'p'+i
+	o.txt = i
+	o.innerHTML = pages[i]
+	pagegroup.appendChild(o)
+}
+
+for(i=0; i<t.length; i++)
+{
+	val = t[i].value
+	t[i].remove(5)
+	t[i].remove(4)
+	t[i].idx = i
+	t[i].onchange = function() { dis(this,1) }
+	t[i].appendChild(catgroup.cloneNode(true))
+	t[i].appendChild(pagegroup.cloneNode(true))
+	if(val == 5) t[i].value = 'c'+t[i].form['adr[]'][i].value;
+	else if(val == 6) t[i].value = 'p'+t[i].form['adr[]'][i].value;
+	dis(t[i])
+}
+
+o = $('tpl').getElementsByTagName('select')[0]
+o.remove(5)
+o.remove(4)
+o.appendChild(catgroup)
+o.appendChild(pagegroup)
+o.onchange = function() { dis(this,1) }
+
+function dis(o, f)
+{
+	switch(o.selectedIndex)
+	{
+		case 1: case 2: case 3: var d = ''; break;
+		default: var d = 'hidden';
+	}
+	if(o.nextElementSibling) o = o.nextElementSibling;
+	else if(o.idx) o = o.form['adr[]'][o.idx];
+	else return;
+	o.style.visibility = d;
+	if(f && !d) o.focus(); 
+}
+
+function linx()
+{
+	if(F.type.value === '3')
+	{
+		$('L1').style.display = '';
+		$('L2').style.display = '';
+	}
+	else
+	{
+		$('L1').style.display = 'none';
+		$('L2').style.display = 'none';
+	}
+}
+linx()
+</script>

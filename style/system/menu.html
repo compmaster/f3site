@@ -1,0 +1,24 @@
+<!-- START block -->
+
+	<!-- IF image -->
+	<div class="mh" style="background: url({image}) no-repeat bottom right">{title}</div>
+	<!-- ELSE -->
+	<div class="mh">{title}</div>
+	<!-- END -->
+
+	<div class="menu">{content}
+	
+	<!-- IF links -->
+	<ul>
+		<!-- START links -->
+			<!-- IF new -->
+			<li><a href="{url}" target="_blank">{title}</a></li>
+			<!-- ELSE -->
+			<li><a href="{url}">{title}</a></li>
+			<!-- END -->
+		<!-- STOP -->
+	</ul>
+	<!-- END -->
+
+	</div>
+<!-- STOP -->

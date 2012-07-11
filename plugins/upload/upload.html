@@ -1,0 +1,50 @@
+<h1>{PAGE TITLE}</h1>
+<form>
+<table class="tb">
+	<tr>
+		<td>{lang.cat}</td>
+		<td><select name="cat"><option value="0">{lang.choose}</option></select></td>
+	</tr>
+	<tr>
+		<td>{lang.deftitle}</td>
+		<td><input name="title" size="30" style="width: 99%" required></td>
+	</tr>
+	<tr>
+		<td>{lang.defautor}</td>
+		<td><input name="author" size="30" style="width: 99%" required></td>
+	</tr>
+	<tr>
+		<td>{lang.defdesc}</td>
+		<td><textarea name="dsc" style="width: 99%" placeholder="opcjonalnie"></textarea></td>
+	</tr>
+	<tr>
+		<td>{lang.images}</td>
+		<td>
+			<div>
+				<label><input name="up" type="radio" value="1"> {lang.upload}</label>
+			</div>
+			<div style="margin: 8px 0 8px 32px">
+				<label><input name="file" type="file" style="width: 99%"></label> 
+			</div>
+			<div>
+				<label><input name="up" type="radio" value="0"> {lang.manual}</label>
+			</div>
+			<div style="margin: 8px 0 8px 32px">
+				<label><input name="folder" placeholder="{lang.folder}" style="width: 68%"></label>
+				<input type="button" value="Przeglądaj..." onclick="fileman('img',this.form.folder)">
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="eth" colspan="2"><input type="submit" value="Dalej &gt;"></td>
+	</tr>
+</table>
+</form>
+
+<!--
+	1. Sprawdź, czy archiwum [P] jest obsługiwane LUB czy folder [F] istnieje
+	2. Rozpakuj do folderu [F] pliki z zakresu [Z]
+	3. Dane globalne: tytuł [T], opis [O], autor [A]
+	-->
+
+<script>include('lib/forms.js')</script>

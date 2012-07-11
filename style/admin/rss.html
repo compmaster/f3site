@@ -1,0 +1,45 @@
+<div id="actions">
+	<a href="url(admin:editRss)" class="edit">{lang.addRss}</a>
+	<a href="url(admin:help#rss)" class="help">{lang.help}</a>
+</div>
+
+<form method="post">
+<h1>{this.title}</h1>
+<table class="tb">
+<tr>
+	<th style="width: 360px">{lang.title}</th>
+	<th style="width: 80px">Auto</th>
+	<th style="width: 80px">{lang.lang}</th>
+	<th>{lang.opt}</th>
+	<th style="width: 20px"><input type="checkbox" onchange="selAll(this)"></th>
+</tr>
+
+<!-- START channel -->
+<tr>
+	<td>
+		<!-- IF file -->
+		<a href="{file}">{title}</a>
+		<!-- ELSE -->
+		<span style="color: red">{title} ({lang.missing})</span>
+		<!-- END -->
+	</td>
+	<td style="text-align: center">{auto}</td>
+	<td style="text-align: center; text-transform: uppercase">{land}</td>
+	<td style="text-align: center"><a href="{edit}">{lang.edit}</a></td>
+	<td><input type="checkbox" name="x[{id}]"></td>
+</tr>
+<!-- STOP -->
+
+<tr>
+	<td colspan="5" class="eth"><input type="submit" name="del" value="{lang.del}"></td>
+</tr>
+</table>
+</form>
+
+<script type="text/javascript">
+document.forms[0].del.onclick = function()
+{
+	if(confirm('{lang.delc}')) send(this);
+	return false
+}
+</script>

@@ -1,0 +1,121 @@
+<form action="index.php" method="post" f3:array="data">
+<table cellspacing="1" class="tb">
+<colgroup>
+	<col style="width: 40%">
+	<col>
+</colgroup>
+<tbody>
+<tr>
+	<th colspan="2">{lang.dba}</th>
+</tr>
+
+<!-- IF mysql -->
+<tr>
+	<td colspan="2">{lang.sure} <a href="http://{host}">{host}</a></td>
+</tr>
+<tr>
+	<td align="right">{lang.host}</td>
+	<td><input name="host" value="{data.host}" size="30" required></td>
+</tr>
+<tr>
+	<td align="right">{lang.user}</td>
+	<td><input name="user" value="{data.user}" size="30" required></td>
+</tr>
+<tr>
+	<td align="right">{lang.pass}</td>
+	<td><input type="password" name="pass" value="{data.pass}" size="30"></td>
+</tr>
+<tr>
+	<td align="right">{lang.name}</td>
+	<td><input name="db" value="{data.db}" size="30" required></td>
+</tr>
+<!-- ELSE -->
+<tr>
+	<td align="right">{lang.file}</td>
+	<td><input name="file" value="{data.file}" size="30" title="{lang.file2}" required></td>
+</tr>
+<!-- END -->
+<tr>
+	<td align="right">{lang.pre}</td>
+	<td><input name="pre" value="{data.pre}" size="30" title="{lang.pre2}" maxlength="9"></td>
+</tr>
+<tr>
+	<th colspan="2">{lang.site}</th>
+</tr>
+<tr>
+	<td align="right">{lang.title}</td>
+	<td><input name="title" value="{data.title}" size="30" required></td>
+</tr>
+<tr>
+	<td align="right">{lang.skin}</td>
+	<td><select name="skin">{skins}</select></td>
+</tr>
+<tr>
+	<td align="right">{lang.urls}</td>
+	<td>
+		<label title="{lang.rewrite2}"><input type="radio" name="urls" value="1"> {lang.rewrite}</label>
+		<label title="{lang.pathinfo2}"><input type="radio" name="urls" value="2"> {lang.pathinfo}</label>
+		<label><input type="radio" name="urls" value="3"> {lang.disable}</label>
+	</td>
+</tr>
+<tr>
+	<td align="right">{lang.langs}</td>
+	<td>
+		<label><input type="radio" name="lng" value="1"> {lang.all}</label>
+		<label><input type="radio" name="lng" value="2"> {lang.one}</label>
+		<label><input type="radio" name="lng" value="3"> {lang.choose}</label>
+		<div style="padding-left: 25px" id="ll">
+			<!-- START langs -->
+			<label><input type="checkbox" name="l[]" value="{ITEM}"> {ITEM}</label>
+			<!-- STOP -->
+		</div>
+	</td>
+</tr>
+<tr>
+	<th colspan="2">{lang.data}</th>
+</tr>
+<tr>
+	<td align="right">{lang.login}</td>
+	<td><input name="login" value="{data.login}" size="30" required></td>
+</tr>
+<tr>
+	<td align="right">{lang.pass2}</td>
+	<td><input type="password" name="uPass" size="30" required></td>
+</tr>
+<tr>
+	<td align="right">{lang.retype}</td>
+	<td><input type="password" name="uPass2" size="30" required></td>
+</tr>
+<tr>
+	<th colspan="2" align="center">
+		<input type="hidden" name="stage" value="2">
+		<input type="submit" value="{lang.setup} &gt;&gt;">
+	</th>
+</tr>
+</tbody>
+</table>
+</form>
+
+<script type="text/javascript">
+f = document.forms[0]
+f[0].focus()
+show('ll')
+onbeforeunload = function(e)
+{
+	if(e) e.returnValue = '{lang.F5}';
+	return '{lang.F5}'
+}
+f.onsubmit = function()
+{
+	if(f.db && f.db.value == 0) { f.db.focus(); return false }
+	if(f.uPass.value == 0) { f.uPass.focus(); return false }
+	if(f.uPass.value != f.uPass2.value) { alert('{lang.e3}'); f.uPass2.focus(); return false }
+	window.onbeforeunload = null
+}
+f.login.onblur = function() { if(this.value == 0 || /[&/?#=\\]/.test(this.value)) this.value = 'Admin' }
+f.pre.onblur = function() { if(/\W/.test(this.value) || /\d/.test(this.value[0])) this.value = 'f3_' }
+f.lng[0].onchange = f.lng[1].onchange = f.lng[2].onchange = function()
+{
+	$('ll').style.display = f.lng[2].checked ? '' : 'none'
+}
+</script>

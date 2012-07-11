@@ -1,0 +1,38 @@
+<div id="path">
+
+	<!-- IF postURL -->
+	<div style="float: right"><a href="{postURL}">{lang.postBug}</a></div>
+	<!-- END -->
+
+	<a href="?co=bugs">{lang.TOC}</a>
+</div>
+
+<!-- IF issue -->
+
+<h1>{this.title}</h1>
+<table class="tb">
+<tr>
+	<th>{lang.title}</th>
+	<th style="width: 20px"></th>
+</tr>
+
+<!-- START issue -->
+
+<tr class="bug{status} lv{lv}" title="{level}">
+	<td class="bug{class}"><b><a href="{url}">{title}</a></b> ({num})<div>{lang.sent} {date}</div></td>
+	<td><input type="checkbox" name="x[{id}]" /></td>
+</tr>
+
+<!-- STOP -->
+
+<tr>
+	<td colspan="3" align="center" id="legend">{lang.legend}:
+		<span class="bug1">{lang.S1}</span> |
+		<span class="bug2">{lang.S2}</span> |
+		<span class="bug3">{lang.S3}</span> |
+		<span class="bug4">{lang.S4}</span>
+	</td>
+</tr>
+</table>
+
+<!-- END -->

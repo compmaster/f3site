@@ -1,0 +1,37 @@
+<!-- IF edit -->
+<div id="actions">
+	<a href="{edit}" class="edit">{lang.edit}</a>
+</div>
+<!-- END -->
+
+<h1>{link.name}</h1>
+<div class="box">
+	{nl2br: link.dsc}
+	<div style="margin-top: 15px">
+
+		<!-- IF count -->
+		<b>{lang.disps}:</b> {link.count}<br >
+		<!-- END -->
+
+		<b>{lang.adr}:</b>
+		
+		<!-- IF link.nw -->
+		<a href="{href}" target="_blank">{link.adr}</a>
+		<!-- ELSE -->
+		<a href="{href}">{link.adr}</a>
+		<!-- END -->
+
+		<!-- IF rates -->
+		<div style="float: right"><b>{lang.rate}:</b>
+		<form action="{rates}" method="post" class="rate avg{link.rate} by" id="rate">
+		<input type="submit" name="v" value="1" class="r1" >
+		<input type="submit" name="v" value="2" class="r2" >
+		<input type="submit" name="v" value="3" class="r3" >
+		<input type="submit" name="v" value="4" class="r4" >
+		<input type="submit" name="v" value="5" class="r5" >
+		</form></div>
+		<script type="text/javascript">rate(document.forms['rate'])</script>
+		<!-- END -->
+
+	</div>
+</div>

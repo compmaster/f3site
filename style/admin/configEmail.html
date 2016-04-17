@@ -1,0 +1,52 @@
+<form method="post" f3:array="cfg" f3:mode="isset">
+<h1>{lang.cfgm}</h1>
+
+<table class="tb">
+<tr>
+	<th colspan="2">{lang.opt}</th>
+</tr>
+<tr>
+	<td style="width: 40%"><b>{lang.mailo}:</b></td>
+	<td><input type="checkbox" name="mailon"></td>
+</tr>
+</tr>
+<tr>
+	<td><b>{lang.mail}:</b><small>{lang.maild}</small></td>
+	<td><input name="mail" value="{clean: cfg.mail}"></td>
+</tr>
+<tr>
+	<td><b>{lang.adr} WWW:</b><small>{lang.mvwd}</small></td>
+	<td><input name="adr" value="{clean: cfg.adr}"></td>
+</tr>
+<tr>
+	<td><b>{lang.mmet}:</b></td>
+	<td>
+		<label><input type="radio" name="mailh" value="1"> mail()
+		<small style="color: green">{lang.recomm}</small></label> &nbsp;
+		<label><input type="radio" name="mailh" value="2">{lang.rsmtp}</label>
+	</td>
+</tr>
+<tr>
+	<th colspan="2">{lang.rsvr}</th>
+</tr>
+<tr>
+	<td><b>{lang.smtp}:</b></td>
+	<td><input name="smtp" value="{cfg.smtp}"></td>
+</tr>
+<tr>
+	<td><b>Port:</b></td>
+	<td><input name="mailport" value="{cfg.mailport}"></td>
+</tr>
+<tr>
+	<td><b>{lang.login} SMTP:</b><small>{lang.mailn}</small></td>
+	<td><input name="smtpl" value="{cfg.smtpl}"></td>
+</tr>
+<tr>
+	<td><b>{lang.pass} SMTP:</b><small>{lang.mailn}</small></td>
+	<td><input type="password" name="smtph" value="{cfg.smtph}"></td>
+</tr>
+<tr>
+	<td class="eth" colspan="2"><input type="submit" value="{lang.save}"></td>
+</tr>
+</table>
+</form>

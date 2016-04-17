@@ -1,0 +1,32 @@
+<!-- IF newslist -->
+
+<h1>{this.title}</h1>
+<table cellspacing="1" class="tb">
+<tbody>
+<tr>
+	<th>{lang.title}</th>
+	<th>{lang.added}</th>
+</tr>
+
+<!-- START news -->
+<tr>
+	<td>{num}. <a href="{url}">{title}</a></td>
+	<td align="center">{date}</td>
+</tr>
+<!-- STOP -->
+
+</tbody>
+</table>
+
+<!-- ELSE -->
+
+<h1>{this.title}</h1>
+<div class="box" style="line-height: 150%; text-align: center">
+	
+	<!-- START dates -->
+		<!-- IF url --><a href="{url}">{title}</a><br ><!-- ELSE --><br ><!-- END -->
+	<!-- STOP -->
+
+</div>
+
+<!-- END -->

@@ -1,0 +1,36 @@
+<div id="actions">
+	<a href="javascript:history.back()" class="del">{lang.cancel}</a>
+	<a href="javascript:document.forms['settings'].submit()" class="add">{lang.save}</a>
+</div>
+
+<form method="post" f3:array="cfg" f3:mode="isset" id="settings">
+<h1>Menu główne - TO BE IMPLEMENTED</h1>
+
+<div class="box" style="text-align: center; line-height: 28px">
+
+<label><input type="checkbox" name="path"> Pokaż ścieżkę bieżącej podstrony na pasku menu</label>
+
+<div id="words" style="margin-top: 8px">
+	<div>
+		<select><option>Strona główna</option></select>
+		<input type="image" src="img/icon/add.png" alt="+">
+		<input type="image" src="img/icon/del.png" alt="-">
+	</div>
+</div>
+
+<input type="button" value="{lang.add}" onclick="f.addItem()">
+<input type="submit" value="{lang.save}">
+
+</div>
+</form>
+
+<div id="tpl" style="display: none">
+	<input maxlength="50" name="bad[]"> {lang.replace} 
+	<input maxlength="50" name="good[]">
+	<input type="image" src="img/icon/add.png" alt="+">
+	<input type="image" src="img/icon/del.png" alt="-">
+</div>
+
+<script type="text/javascript">
+var f = new Fragment('words',{limit:99,html:$('tpl')})
+</script>

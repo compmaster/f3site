@@ -1,0 +1,27 @@
+/*Status*/
+.bug1,.bug1 a {color: #0e703f}
+.bug2,.bug2 a {color: #8b1888}
+.bug3,.bug3 a {color: #7a7a3d}
+.bug4,.bug4 a {color: #115384}
+.bug5,.bug5 a {color: #707070}
+#chst {width: 180px}
+#handUp,#handDown {cursor: pointer; padding-left: 20px; background-repeat: no-repeat}
+#handUp {background-image: url(../up.png)}
+#handDown {background-image: url(../down.png)}
+#handUp:hover,#handDown:hover {background-color: #ffffcc}
+
+/*Poziom*/
+/*.lv1,.lv2,.lv3,.lv4,.cat,.catnew,.bugimg,.bugnew {background-repeat: no-repeat; background-position: center}
+.lv1 {background-image: url(s1.png)}
+.lv2 {background-image: url(s2.png)}
+.lv3 {background-image: url(s3.png)}
+.lv4 {background-image: url(s4.png)}*/
+.lv4 {background-color: #d0fde8}
+.lv3 {background-color: #e4fede}
+.lv2 {background-color: #fffadd}
+.lv1 {background-color: #ffe8dd}
+
+/*Kategoria*/
+.bugCat,.bugCatNew,.bugOld,.bugNew {padding: 6px !important; padding-left: 32px !important}
+.bugCat,.bugOld {background: url(../../../img/icon/cs1.png) no-repeat 5px 50%}
+.bugCatNew,.bugNew {background: url(../../../img/icon/cs.png) no-repeat 5px 50%}

@@ -1,0 +1,88 @@
+<form method="post" f3:array="u">
+<h1>{lang.account}</h1>
+
+<table class="tb">
+<tr>
+	<td><b>{lang.login}:</b><br><small>{lang.logind}</small></td>
+	<td style="width:70%"><input name="login" maxlength="30" value="{u.login}"></td>
+</tr>
+<!-- IF pass -->
+<tr>
+	<td><b>{lang.pass}:</b></td>
+	<td><input name="pass" type="password" maxlength="50"></td>
+</tr>
+<!-- END -->
+<tr>
+	<td><b>{lang.mail}:</b></td>
+	<td><input type="email" name="mail" value="{u.mail}" maxlength="70"></td>
+</tr>
+<tr>
+	<td><b>{lang.from}:</b></td>
+	<td><input name="city" maxlength="50" value="{u.city}"></td>
+</tr>
+<tr>
+	<td><b>Gadu-Gadu:</b></td>
+	<td><input name="gg" maxlength="15" value="{u.gg}"></td>
+</tr>
+<tr>
+	<td><b>Tlen.pl:</b><br><small>{lang.tlenwot}</small></td>
+	<td><input name="tlen" maxlength="25" value="{u.tlen}"></td>
+</tr>
+<tr>
+	<td><b>ICQ:</b></td>
+	<td><input name="icq" maxlength="20" value="{u.icq}"></td>
+</tr>
+<tr>
+	<td><b>Jabber:</b></td>
+	<td><input name="jabber" maxlength="60" value="{u.jabber}"></td>
+</tr>
+<tr>
+	<td><b>Skype:</b></td>
+	<td><input name="skype" maxlength="50" value="{u.skype}"></td>
+</tr>
+<tr>
+	<td><b>{lang.wwwp}:</b></td>
+	<td><input type="url" name="www" maxlength="120" value="{u.www}" size="40"></td>
+</tr>
+<tr>
+	<td><b>{lang.curPhoto}:</b></td>
+	<td>
+		<input name="photo" maxlength="150" value="{u.photo}" size="40">
+		<!-- IF fileman -->
+		<input type="button" value="{lang.files} &raquo;" onclick="fileman('img',this.form.photo)">
+		<!-- END -->
+	</td>
+</tr>
+<tr>
+	<td><b>{lang.sex}:</b></td>
+	<td>
+		<select name="sex">
+			<option value="0"> </option>
+			<option value="1">{lang.male}</option>
+			<option value="2">{lang.female}</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><b>{lang.abouty}:</b></td>
+	<td><textarea name="about" cols="50" rows="8" style="width: 99%">{u.about}</textarea></td>
+</tr>
+<tr>
+	<td class="eth" colspan="2">
+		<input type="submit" value="{lang.save}" name="sav">
+		<input type="reset" value="{lang.reset}">
+	</td>
+</tr>
+</table>
+</form>
+
+<!-- IF bbcode -->
+<script type="text/javascript">
+include('lang/' + document.documentElement.lang + '/edit.js')
+include('lib/editor.js')
+include('cache/emots.js')
+include('lib/forms.js')
+document.forms[0].about.onfocus = function() { new Editor(this,1).emots(); this.onfocus = null }
+document.forms[0][0].focus()
+</script>
+<!-- END -->

@@ -1,0 +1,53 @@
+<h1>{lang.mantxt}</h1>
+<div class="box" style="overflow: hidden; padding: 5px 9px; line-height: 22px">
+	<div style="float: left; width: 50%">
+		<div><b>{lang.add}</b></div>
+		<a href="url(edit/5)" class="add">{lang.news}</a><br >
+		<a href="url(edit/1)" class="add">{lang.arts}</a><br >
+		<a href="url(edit/3)" class="add">{lang.imgs}</a><br >
+		<a href="url(edit/2)" class="add">{lang.files}</a><br >
+		<a href="url(edit/4)" class="add">{lang.links}</a><br >
+		<!-- IF page -->
+		<a href="{page}" class="add">{lang.freePage}</a>
+		<!-- END -->
+	</div>
+	<div style="float: right; width: 50%">
+		<div><b>{lang.list}</b></div>
+		<a href="url(list/5)" class="del">{lang.news}</a><br >
+		<a href="url(list/1)" class="del">{lang.arts}</a><br >
+		<a href="url(list/3)" class="del">{lang.imgs}</a><br >
+		<a href="url(list/2)" class="del">{lang.files}</a><br >
+		<a href="url(list/4)" class="del">{lang.links}</a><br >
+		<!-- IF pages -->
+		<a href="{pages}" class="del">{lang.freePage}</a>
+		<!-- END -->
+	</div>
+
+	<!-- IF comment -->
+	<div style="float: left; width: 50%">
+		<div style="margin-top: 7px"><b>{lang.comms}</b></div>
+		<a href="url(moderate)" class="quote">{lang.moderate}</a><br >
+		<a href="url(moderate/hidden)" class="quote">{lang.approve}</a>
+	</div>
+	<div style="float: right; width: 50%">
+		<div style="margin-top: 7px"><b>{lang.lastComm}</b></div>
+		<span class="quote">{comment.date}</span><br >
+		<span class="quote">{comment.title}</span>
+	</div>
+	<!-- END -->
+</div>
+
+<!-- IF comment -->
+<h1>{lang.lastComm}</h1>
+<div class="box" style="word-wrap: break-word">
+	<h3>{comment.title}</h3>
+	<div style="white-space: pre-line">{comment.text}</div>
+</div>
+
+<!-- IF comment.color -->
+<script type="text/javascript">
+include('lib/prettify/prettify.css')
+include('lib/prettify/prettify.js', function() { prettyPrint() })
+</script>
+<!-- END -->
+<!-- END -->

@@ -1,0 +1,20 @@
+<h1>{poll.name}</h1>
+<div class="box" style="text-align: center">{poll.q}
+
+<table cellpadding="3" style="width: 300px; margin: 9px auto; text-align: left">
+<colgroup>
+	<col >
+	<col style="width: 50px" >
+</colgroup>
+<tbody>
+
+<!-- START item -->
+<tr>
+	<td>{label}<div style="width: {percent}%; background-color: {color}" class="pollstrip"></div></td>
+	<td><b>{num}</b><br >{percent}%</td>
+</tr>
+<!-- STOP -->
+
+</tbody></table>
+{lang.votes}: <b>{poll.num}</b> | Start: <b>{poll.date}</b> | <a href="{archive}">{lang.archive}</a>
+</div>

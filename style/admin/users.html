@@ -1,0 +1,49 @@
+<div id="actions">
+	<a href="url(admin:editUser)" class="add">{lang.addUser}</a>
+	<a href="url(admin:configUsers)" class="settings">{lang.config}</a>
+	<a href="url(help#users)" class="help">{lang.help}</a>
+</div>
+
+<form method="post">
+<h1>{lang.users}</h1>
+
+<table class="tb">
+<tr>
+	<th>{lang.login}</th>
+	<th>{lang.range}</th>
+	<th>{lang.privs}</th>
+	<th>{lang.opt}</th>
+	<th style="width: 20px"><input type="checkbox" onchange="selAll(this)"></th>
+</tr>
+
+<!-- START users -->
+<tr>
+	<td>{num}. <a href="{url}">{login}</a></td>
+	<td style="text-align: center">{level}</td>
+	<td style="text-align: center">{privs}</td>
+	<td style="text-align: center">
+		<!-- IF edit -->
+		<a href="{edit}">{lang.profile}</a>
+		<!-- END -->
+		<!-- IF priv -->
+		<a href="{priv}" style="margin-left: 15px">{lang.priv}</a>
+		<!-- END -->
+	</td>
+	<td><input type="checkbox" name="x[{id}]"></td>
+</tr>
+<!-- STOP -->
+
+<tr class="eth">
+	<td>{lang.search}: <input name="s" value="{search}" style="height: 14px"></td>
+	<td colspan="2">{lang.page}: {pages}</td>
+	<td colspan="2"><input type="submit" name="del" value="{lang.del}"></td>
+</tr>
+</table>
+
+<script type="text/javascript">
+document.forms[0].del.onclick = function()
+{
+	if(confirm('{lang.delc}')) send(this);
+	return false
+}
+</script>

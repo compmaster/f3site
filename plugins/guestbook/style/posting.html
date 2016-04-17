@@ -1,0 +1,75 @@
+<!-- IF rules -->
+<div class="info" style="white-space: pre-wrap">{rules}</div>
+<!-- END -->
+
+<!-- IF preview -->
+<h1>{lang.preview}</h1>
+<div class="box">{preview}</div>
+<!-- END -->
+
+<h1>{this.title}</h1>
+<form action="" method="post" id="post">
+<table cellspacing="1" class="tb">
+<tr>
+	<td style="width: 25%"><b>{lang.user}:</b></td>
+	<td><input name="who" value="{post.who}" maxlength="25" /></td>
+</tr>
+<tr>
+	<td>E-mail:</td>
+	<td><input name="mail" maxlength="45" value="{post.mail}" /></td>
+</tr>
+<tr>
+	<td>WWW:</td>
+	<td><input name="www" maxlength="50" value="{post.www}" /></td>
+</tr>
+<tr>
+	<td>Gadu-Gadu:</td>
+	<td><input name="gg" maxlength="12" value="{post.gg}" /></td>
+</tr>
+<tr>
+	<td>Tlen.pl:</td>
+	<td><input name="tlen" maxlength="25" value="{post.tlen}" /></td>
+</tr>
+<tr>
+	<td>ICQ:</td>
+	<td><input name="icq" maxlength="20" value="{post.icq}" /></td>
+</tr>
+<tr>
+	<td>Skype:</td>
+	<td><input name="skype" maxlength="32" value="{post.skype}" /></td>
+</tr>
+<tr>
+	<td>Jabber:</td>
+	<td><input name="jabber" maxlength="70" value="{post.jabber}" /></td>
+</tr>
+
+<!-- IF code -->
+<tr>
+	<td><b>{lang.imgcode}:</b></td>
+	<td>{code}</td>
+</tr>
+<!-- END -->
+
+<tr>
+	<th colspan="2">{lang.text}</th>
+</tr>
+<tr>
+	<td colspan="2" style="text-align: center">
+		<textarea name="txt" cols="35" rows="12" style="width: 99%">{post.txt}</textarea>
+	</td>
+</tr>
+<tr>
+	<td class="eth" colspan="2">
+		<input type="submit" value="{lang.preview}" name="prev" />
+		<input type="submit" value="{lang.save}" name="save" />
+		<input type="button" value="{lang.return}" onclick="history.back()" />
+	</td>
+</tr>
+</table>
+</form>
+
+<script type="text/javascript">
+f = document.forms['post'];
+f[0].focus();
+<!-- IF bbcode -->e = new Editor(f['txt'],1); e.emots(); e.protect()<!-- END -->
+</script>

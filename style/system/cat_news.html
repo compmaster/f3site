@@ -1,0 +1,30 @@
+<h1>{cat.name}</h1>
+<div class="box">
+
+<!-- START news -->
+<h2><a href="{url}">{title}</a></h2>
+
+<div class="newsBar">
+	<div class="date">{date}</div>
+	<div class="author"><a href="{wrote_url}">{wrote}</a></div>
+</div>
+
+<!-- IF img -->
+<img src="{img}" class="newsimg" alt="{title}">
+<!-- END -->
+
+{text}
+
+<div class="newsButtons">
+	<!-- IF edit_url --><a href="{edit_url}" class="blue">{lang.edit}</a><!-- END -->
+	<!-- IF full_url --><a href="{full_url}" class="orange">{lang.more}</a><!-- END -->
+	<!-- IF comm_url --><a href="{comm_url}" class="brown"><span class="comments">{comm}</span></a><!-- END -->
+</div>
+
+<!-- STOP -->
+
+<!-- IF pages -->
+<div class="pages">{pages}</div>
+<!-- END -->
+
+</div>

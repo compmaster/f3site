@@ -1,0 +1,68 @@
+<div class="box" id="BPrev" style="display: none"></div>
+
+<form method="post" id="bug" f3:array="bug">
+<h1>{this.title}</h1>
+<table class="tb">
+
+<!-- IF code -->
+<tr>
+	<td><b>{lang.code}:</b><br /><small>{lang.imgcode}</small></td>
+	<td>{code}</td>
+</tr>
+<!-- END -->
+
+<!-- IF who -->
+<tr>
+	<td>{lang.author}:</td>
+	<td><input name="who" maxlength="20" value="{bug.who}" /></td>
+</tr>
+<!-- END -->
+
+<tr>
+	<td>{lang.title}:</td>
+	<td><input name="name" maxlength="30" size="30" value="{bug.name}" /></td>
+</tr>
+<tr>
+	<td>{lang.bugsEnv}:<br /><small>{lang.optional}</small></td>
+	<td><input name="env" maxlength="100" size="50" value="{bug.env}" /></td>
+</tr>
+<tr>
+	<td>{lang.level}:</td>
+	<td><select name="level" style="font-weight: bold">
+		<option value="1" style="color: red">{lang.L1}</option>
+		<option value="2" style="color: #c4ab00">{lang.L2}</option>
+		<option value="3" style="color: #8aa61e">{lang.L3}</option>
+		<option value="4" style="color: #21a393">{lang.L4}</option>
+	</select></td>
+</tr>
+<tr>
+	<th colspan="2">{lang.text}</th>
+</tr>
+<tr>
+	<td align="center" colspan="2">
+		<textarea name="text" rows="18" cols="50" style="width: 99%">{bug.text}</textarea>
+	</td>
+</tr>
+<tr>
+	<td class="eth" colspan="2">
+		<input type="button" value="{lang.preview}" name="prev" />
+		<input type="submit" value="{lang.save}" />
+	</td>
+</tr>
+</table>
+</form>
+<script type="text/javascript">
+var e,f = document.forms['bug'],p=$('BPrev');
+f.prev.onclick = function()
+{
+	show('BPrev',1)
+	new Request('request.php?go=preview',p).post({text:f.text.value, BBCODE:1, EMOTS:1, NL:1})
+	p.scrollIntoView()
+}
+f.onsubmit = function()
+{
+	if(f.name.value==0) { f.name.focus(); return false }
+}
+f[0].focus()
+<!-- IF bbcode -->e = new Editor(f.text,1); e.emots()<!-- END -->
+</script>

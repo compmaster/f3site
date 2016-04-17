@@ -1,0 +1,46 @@
+<div id="actions">
+	<a href="url(admin:editCat)" class="edit">{lang.addCat}</a>
+	<a href="url(admin:help#cats)" class="help">{lang.help}</a>
+</div>
+
+<form method="post" action="url(admin:editCats)">
+<h1>{this.title}</h1>
+
+<table class="tb" id="cats">
+<thead>
+<tr>
+	<th class="string">{lang.name}</th>
+	<th class="numeric" style="width: 30px">ID</th>
+	<th class="string" style="width: 50px">{lang.disp}</th>
+	<th class="string">{lang.type}</th>
+	<th>{lang.opt}</th>
+	<th style="width: 20px"><input type="checkbox" onchange="selAll(this)"></th>
+</tr>
+</thead>
+<tbody style="text-align: center">
+
+<!-- START cat -->
+<tr>
+	<td style="text-align: left"><a href="{url}" style="margin-left: {depth}em">{name}</a> ({num})</td>
+	<td>{id}</td>
+	<td>{disp}</td>
+	<td>{type}</td>
+	<td><a href="{edit}">{lang.edit}</a></td>
+	<td><input type="checkbox" name="x[{id}]"></td>
+</tr>
+<!-- STOP -->
+
+</tbody>
+<tfoot>
+<tr>
+	<td class="eth" colspan="6">
+		<input type="submit" name="del" value="{lang.del}">
+		<input type="submit" name="count" value="{lang.count}">
+	</td>
+</tr>
+</tfoot>
+</table>
+</form>
+<script type="text/javascript">
+include('lib/sort.js', function() { new Sortable('cats') })
+</script>

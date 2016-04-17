@@ -1,0 +1,143 @@
+<!-- NOTICE: Do not change id and class attributes! -->
+
+<!-- IF comment -->
+<table class="tb" id="comments">
+<caption>{lang.comms}</caption>
+<colgroup>
+	<col style="width: 130px">
+	<col>
+</colgroup>
+<tbody>
+
+<!-- START comment -->
+<tr>
+	<td>
+		<div title="{agent}" class="nick">
+			<!-- IF profile -->
+			<a href="{profile}">{nick}</a>
+			<!-- ELSE -->
+			{nick}
+			<!-- END -->
+		</div>
+
+		<!-- IF ip -->
+		<div><a href="{findIP}">{ip}</a></div>
+		<!-- END -->
+
+		<!-- IF photo -->
+		<div class="avatar"><img src="{photo}" alt="{nick}"></div>
+		<!-- END -->
+
+	</td>
+	<td class="comment">
+		<!-- IF del -->
+		<a href="{del}" class="action"><img src="img/icon/x.png" alt="-" title="{lang.del}"></a>
+		<!-- END -->
+		<!-- IF accept -->
+		<a href="{accept}" class="action"><img src="img/icon/accept.png" alt="+" title="{lang.accept}"></a>
+		<!-- END -->
+		<!-- IF edit -->
+		<a href="{edit}" class="action"><img src="img/icon/edit.png" alt="E" title="{lang.edit}"></a>
+		<!-- END -->
+
+		<div class="comDate">{date}</div>
+		<!-- IF title -->
+		<h3>{title}</h3>
+		<!-- END -->
+		{text}
+	</td>
+</tr>
+<!-- STOP -->
+
+<!-- IF quickreply -->
+<tr>
+	<td style="vertical-align: top; text-align: center">
+
+		<div style="text-align: center; margin: 2px; overflow: hidden">
+			<img src="http://www.gravatar.com/avatar/lol">
+		</div>
+
+	</td>
+	<td style="max-width: 406px; word-wrap: break-word; vertical-align: top">
+		<textarea rows="5" style="width: 100%" placeholder="Add comment - EXPERIMENTAL FEATURE"></textarea>
+	</td>
+</tr>
+<!-- END -->
+
+<!-- IF parts -->
+<tr>
+	<td colspan="2" class="pages">{parts}</td>
+</tr>
+<!-- END -->
+
+</tbody>
+</table>
+
+<!-- END -->
+
+<form action="{url}" id="quickreply" method="post">
+<h1>{lang.addComm}</h1>
+
+<table class="tb">
+<tbody>
+
+
+<tr>
+	<td><b>{lang.author}:</b></td>
+	<td><input name="author" maxlength="20"></td>
+</tr>
+
+
+<!-- IF 1 -->
+<tr>
+	<td style="width: 110px"><b>{lang.title}:</b></td>
+	<td><input name="name" size="30" maxlength="40"></td>
+</tr>
+<!-- END -->
+
+<tr>
+  <td colspan="2" align="center">
+		<textarea name="text" rows="12" cols="60" style="width: 100%"></textarea>
+	</td>
+</tr>
+
+<!-- IF 0 -->
+<tr>
+	<th colspan="2">{lang.imgcode}</th>
+</tr>
+<tr>
+	<td colspan="2" align="center">{code}</td>
+</tr>
+<!-- END -->
+
+<tr>
+	<td colspan="2" class="eth">
+		<input type="button" value="{lang.preview}" name="preview">
+		<input type="submit" value="{lang.save}" name="save">
+	</td>
+</tr>
+</tbody></table>
+</form>
+
+<script>
+include('lang/' + document.documentElement.lang + '/edit.js');
+document.forms['quickreply'].text.onfocus = function() {
+	this.onfocus = undefined;
+	include('lib/editor.js', function() {
+		var editor = new Editor(document.forms['quickreply'].text,1);
+		editor.emots()
+		editor.protect()
+	})
+}
+</script>
+
+<!-- IF mustLogin -->
+<div class="box" style="text-align: center">{lang.loginComm}</div>
+<!-- END -->
+
+<script type="text/javascript">
+include('lib/comm.js')
+<!-- IF color -->
+include('lib/prettify/run_prettify.js')
+<!-- END -->
+</script>

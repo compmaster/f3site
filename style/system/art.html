@@ -1,0 +1,49 @@
+<!-- IF edit -->
+<div id="actions"><a href="{edit}" class="edit">{lang.edit}</a></div>
+<!-- END -->
+
+<h1>{art.name}</h1>
+<div class="box">
+
+	{art.text}
+
+	<!-- IF pages --><div class="pages" style="margin-top: 12px">{pages}</div><!-- END -->
+
+	<div style="margin-top: 12px">
+
+	<!-- IF rates -->
+	<div style="float: right">{lang.rate}: 
+	<form action="{rates}" method="post" class="rate avg{art.rate} by" id="rate">
+		<input type="submit" name="v" value="1" class="r1" >
+		<input type="submit" name="v" value="2" class="r2" >
+		<input type="submit" name="v" value="3" class="r3" >
+		<input type="submit" name="v" value="4" class="r4" >
+		<input type="submit" name="v" value="5" class="r5" >
+	</form>
+	<script type="text/javascript">rate(document.forms['rate'])</script>
+	</div>
+	<!-- END -->
+
+	{lang.wrote}: {art.author} - {art.date}
+
+	<!-- IF art.views -->
+	<div style="float: left; margin-right: 15px">{lang.disps}: {art.views}</div>
+	<!-- END -->
+	
+	</div>
+</div>
+
+<!-- IF color -->
+<script type="text/javascript">
+
+include('lib/prettify/run_prettify.js')
+</script>
+<!-- END -->
+
+<!-- IF lightbox -->
+<script type="text/javascript">
+include('lib/slimbox/slimbox2.css')
+include('http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js',function(){
+include('lib/slimbox/slimbox2.js'); jQuery.noConflict() })
+</script>
+<!-- END -->

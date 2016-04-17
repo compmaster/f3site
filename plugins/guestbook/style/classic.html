@@ -1,0 +1,106 @@
+<form action="" method="post">
+<h1>{lang.guestbook}</h1>
+<div class="box">
+
+<!-- IF intro -->
+<div style="white-space: pre-wrap">{intro}</div>
+<!-- END -->
+
+<!-- IF postURL -->
+<ul class="go">
+	<li><a href="{postURL}">{lang.sign}</a></li>
+</ul>
+<!-- END -->
+
+<!-- START post -->
+<table cellspacing="2" cellpadding="3" style="width: 100%; margin: 5px 0">
+<tbody valign="top">
+<tr>
+	<th colspan="2"><b>{who} - {date}</b></th>
+</tr>
+
+<!-- IF mail -->
+<tr>
+	<th align="right" style="width: 25%"><b>E-mail:</b></th>
+	<td><a href="mailto:{mail}">{mail}</a></td>
+</tr>
+<!-- END -->
+
+<!-- IF www -->
+<tr>
+	<th align="right"><b>WWW:</b></th>
+	<td><a href="{www}">{www}</a></td>
+</tr>
+<!-- END -->
+
+<!-- IF ip -->
+<tr>
+	<th align="right"><b>IP:</b></th>
+	<td>{ip}</td>
+</tr>
+<!-- END -->
+
+<tr>
+	<th align="right" style="width: 25%"><b>{lang.contact}:</b></th>
+	<td>
+
+		<!-- IF edit -->
+		<div style="float: right">
+			<a href="{edit}" title="{lang.edit}">
+				<img src="img/icon/edit.png" alt="E" />
+			</a>
+			<input type="checkbox" name="x[{id}]" />
+		</div>
+		<!-- END -->
+
+		<!-- IF gg -->
+		<a href="gg:{gg}" title="Gadu-Gadu">
+			<img src="http://status.gadu-gadu.pl/users/status.asp?id={gg}&amp;styl=5" alt="GG" />
+		</a>
+		<!-- END -->
+
+		<!-- IF tlen -->
+		<a href="http://ludzie.tlen.pl/{tlen}" title="Tlen.pl">
+			<img src="http://status.tlen.pl/?u={tlen}&amp;t=1" alt="Tlen" />
+		</a>
+		<!-- END -->
+
+		<!-- IF icq -->
+		<a href="http://www.icq.com/people/about_me.php?uin={icq}" title="ICQ">
+			<img src="http://status.icq.com/online.gif?icq={icq}&amp;img=5" alt="ICQ" />
+		</a>
+		<!-- END -->
+
+		<!-- IF jabber -->
+		<a href="xmpp:{jabber}" title="Jabber"><img src="img/icon/bulb.png" alt="Jabber" /></a>
+		<!-- END -->
+
+		<!-- IF skype -->
+		<!-- Skype My status button http://www.skype.com/go/skypebuttons -->
+		<a href="skype:{skype}?call" onclick="return confirm('{lang.wantCall} {skype}?')" title="Skype">
+			<img src="http://mystatus.skype.com/smallicon/{skype}" width="16" height="16" alt="My status" />
+		</a>
+		<!-- END -->
+
+	</td>
+</tr>
+<tr>
+	<td colspan="2" style="white-space: pre-wrap">{text}</td>
+</tr>
+</tbody>
+</table>
+<!-- STOP -->
+
+<!-- IF pages -->
+<div class="pages">{pages}</div>
+<!-- END -->
+
+</div>
+
+<!-- IF rights -->
+<div class="end">
+	<input type="submit" name="del" value="{lang.del}" />
+</div>
+<!-- END -->
+
+</form>

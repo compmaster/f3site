@@ -1,0 +1,65 @@
+<!-- IF edit -->
+<div id="actions">
+	<a href="{edit}" class="edit">{lang.edit}</a>
+</div>
+<!-- END -->
+
+<h1>{img.name}</h1>
+<div class="box">
+	<div style="margin: 3px 0; text-align: center">
+
+	<!-- IF image -->
+	<a href="{img.file}" title="{img.name}">
+
+		<!-- IF size -->
+		<img src="{img.file}" alt="{img.name}" width="{size.0}" height="{size.1}" >
+		<!-- ELSE -->
+		<img src="{img.file}" alt="{img.name}" style="overflow: hidden; max-width: 100%" >
+		<!-- END -->
+
+	</a>
+	<!-- END -->
+
+	<!-- IF flash -->
+	<object type="application/x-shockwave-flash" data="{img.file}" width="{size.0}" height="{size.1}">
+    <param name="movie" value="{img.file}" >
+	</object>
+	<!-- END -->
+
+	<!-- IF audio -->
+	<audio controls preload="auto" src="{img.file}">
+	<!-- END -->
+
+	<!-- IF video -->
+	<video controls preload="auto" width="{size.0}" height="{size.1}" poster="{img.filem}" src="{img.file}">
+		<a href="http://opera.com">Install HTML 5 compliant browser</a>
+	</video>
+	<!-- END -->
+
+	</div>
+	<div style="line-height: 20px">
+		<div style="float: left; width: 50%"><b>{lang.added}:</b> {img.date}</div>
+		<div style="float: right; width: 50%"><b>{lang.author}:</b> {img.author}</div>
+
+		<!-- IF rates -->
+		<b>{lang.rate}:</b>
+		<form action="{rates}" method="post" class="rate avg{img.rate} by" id="rate">
+		<input type="submit" name="v" value="1" class="r1">
+		<input type="submit" name="v" value="2" class="r2">
+		<input type="submit" name="v" value="3" class="r3">
+		<input type="submit" name="v" value="4" class="r4">
+		<input type="submit" name="v" value="5" class="r5">
+		</form>
+		<script type="text/javascript">rate(document.forms['rate'])</script>
+		<!-- END -->
+  </div>
+  {img.dsc}
+</div>
+
+<!-- IF lightbox -->
+<script type="text/javascript">
+include('lib/slimbox/slimbox2.css')
+include('http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js',function(){
+include('lib/slimbox/slimbox2.js'); jQuery.noConflict() })
+</script>
+<!-- END -->

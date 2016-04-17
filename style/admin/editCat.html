@@ -1,0 +1,94 @@
+<form method="post" f3:array="cat">
+<h1>{this.title}</h1>
+
+<table cellspacing="1" class="tb">
+<tr>
+	<td style="width: 200px"><b>{lang.title}:</b></td>
+	<td><input name="name" value="{cat.name}" maxlength="50" size="50" autofocus required></td>
+</tr>
+<tr>
+	<td><b>{lang.desc}:</b></td>
+	<td><input name="dsc" value="{cat.dsc}" maxlength="200" size="50"></td>
+</tr>
+<tr>
+	<td><b>{lang.upcat}:</b></td>
+	<td>
+		<select name="sc">
+			<option value="0">{lang.basic}</option>{cats}
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><b>{lang.access}:</b></td>
+	<td>
+		<select name="vis" f3:var="cat.access">
+			<option value="1">{lang.on}</option>
+			{langs}
+			<option value="2">{lang.hidden}</option>
+			<option value="3">{lang.off}</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td><b>{lang.type}:</b></td>
+	<td>
+		<label><input type="radio" name="type" value="1"> {lang.arts}</label>
+		<label><input type="radio" name="type" value="2"> {lang.files}</label>
+		<label><input type="radio" name="type" value="3"> {lang.imgs}</label>
+		<label><input type="radio" name="type" value="4"> {lang.links}</label>
+		<label><input type="radio" name="type" value="5"> {lang.news}</label>
+		<!-- START custom -->
+		<label><input type="radio" name="type" value="{type}"> {name}</label>
+		<!-- STOP -->
+	</td>
+</tr>
+<tr>
+	<td>
+		<b>{lang.sort}:</b>
+		<small>{lang.nnews}</small>
+	</td>
+	<td>
+		<label><input type="radio" name="sort" value="1"> {lang.sort1}</label><br>
+		<label><input type="radio" name="sort" value="2"> {lang.sort2}</label><br>
+		<label><input type="radio" name="sort" value="3"> {lang.sort3}</label><br>
+		<label><input type="radio" name="sort" value="4"> {lang.sort4}</label><br>
+		<label><input type="radio" name="sort" value="5"> {lang.sort5}</label>
+	</td>
+</tr>
+<tr>
+	<td>
+		<b>{lang.opt}:</b>
+		<small>{lang.disd}</small>
+	</td>
+	<td>
+		<label><input type="checkbox" name="o5" f3:var="o5"> {lang.dis5}</label><br>
+		<label><input type="checkbox" name="o4" f3:var="o4"> {lang.dis4}</label><br>
+		<label><input type="checkbox" name="o1" f3:var="o1"> {lang.dis1}</label><br>
+		<label><input type="checkbox" name="o2" f3:var="o2"> {lang.dis2}</label><br>
+		<label><input type="checkbox" name="o3" f3:var="o3"> {lang.dis3}</label><br>
+	</td>
+</tr>
+<tr>
+	<th colspan="2">{lang.intro}</th>
+</tr>
+<tr>
+	<td colspan="2" style="text-align: center">
+		<textarea name="txt" style="width: 99%" cols="30" rows="12">{clean: cat.text}</textarea>
+	</td>
+</tr>
+
+<tr>
+	<td colspan="2" class="eth">
+		<input type="submit" value="{lang.save}">
+		<input type="button" value="{lang.preview}" onclick="e.preview()">
+		<input type="reset" value="{lang.reset}" onclick="return confirm(this.value)">
+	</td>
+</tr>
+</table>
+</form>
+
+<script type="text/javascript">
+f = document.forms[0]
+e = new Editor(f.txt)
+e.protect()
+</script>

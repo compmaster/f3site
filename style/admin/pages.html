@@ -1,0 +1,47 @@
+<div id="actions">
+	<a href="url(admin:editPage)" class="edit">{lang.addPage}</a>
+	<a href="url(admin:help#pages)" class="help">{lang.help}</a>
+</div>
+
+<form method="post">
+<h1>{lang.ipages}</h1>
+
+<table class="tb">
+<tr>
+	<th>{lang.name}</th>
+	<th style="width: 50px">ID</th>
+	<th style="width: 70px">{lang.disp}</th>
+	<th>{lang.opt}</th>
+	<th style="width: 20px"><input type="checkbox" onchange="selAll(this)"></th>
+</tr>
+
+<!-- START pages -->
+<tr>
+  <td>{num}. <a href="{url}">{title}</a></td>
+  <td style="text-align: center">{id}</td>
+  <td style="text-align: center">{access}</td>
+  <td style="text-align: center"><a href="{edit}">{lang.edit}</a></td>
+	<td><input type="checkbox" name="x[{id}]"></td>
+</tr>
+<!-- STOP -->
+
+<tr>
+	<td class="eth" colspan="5">
+		<input type="submit" name="show" value="{lang.enable}">
+		<input type="submit" name="hide" value="{lang.disable}">
+		<input type="submit" name="del" value="{lang.del}" id="del">
+	</td>
+</tr>
+</table>
+</form>
+
+<script type="text/javascript">
+$('del').onclick = function()
+{
+	if(confirm('{lang.delc}'))
+	{
+		send(this)
+	}
+	return false;
+}
+</script>

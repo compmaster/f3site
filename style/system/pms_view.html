@@ -1,0 +1,63 @@
+<!-- START pm -->
+<h1>{topic}</h1>
+<table cellspacing="1" class="tb" style="table-layout: fixed">
+<tbody>
+<tr>
+	<td style="width: 20%" align="center" valign="top">
+
+		<b><a href="{url}">{who}</a></b>
+
+		<!-- IF photo -->
+		<div style="margin: 3px; overflow: hidden">
+			<img src="{photo}" alt="{who}" >
+		</div>
+		<!-- END -->
+
+	</td>
+	<td valign="top" style="word-wrap: break-word">{txt}</td>
+</tr>
+<tr>
+	<td class="eth" colspan="2" id="pm_foot">
+		<!-- IF edit -->
+		<a href="{edit}" style="margin: 8px">{lang.edit}</a>
+		<!-- END -->
+		<!-- IF reply -->
+		<a href="{reply}" style="margin: 8px">{lang.reply}</a>
+		<!-- END -->
+		<a href="{fwd}" style="margin: 8px">{lang.fwd}</a>
+	</td>
+</tr>
+</tbody>
+</table>
+<!-- STOP -->
+
+<!-- IF color -->
+<script type="text/javascript">
+include('lib/prettify/prettify.css')
+include('lib/prettify/prettify.js', function() { prettyPrint() })
+</script>
+<!-- END -->
+
+<!--
+<form action="{form}" method="post" id="quickreply">
+<h1>{lang.reply}</h1>
+<div class="box" style="text-align: center">
+	<textarea name="txt" cols="50" rows="3" style="width: 99%"></textarea>
+	<input type="submit" value="{lang.send}">
+	<input type="hidden" name="to" value="{lang.send}">
+</div>
+</form>
+
+<script type="text/javascript">
+include('lib/editor.js')
+include('cache/emots.js')
+include('lang/'+document.documentElement.lang+'/edit.js')
+document.forms['quickreply'].txt.onfocus = function()
+{
+	this.rows = 12
+	this.onfocus = null
+	var d = new Editor(this, 1)
+	d.emots()
+	d.protect()
+}
+</script>-->

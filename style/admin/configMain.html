@@ -1,0 +1,281 @@
+<div id="actions">
+	<a href="javascript:history.back()" class="del">{lang.cancel}</a>
+	<a href="javascript:document.forms['settings'].submit()" class="add">{lang.save}</a>
+</div>
+
+<form method="post" f3:array="cfg" f3:mode="isset" id="settings">
+<h1>Ustawienia witryny</h1>
+
+<table class="tb">
+<tr>
+	<td style="width: 290px"><b>{lang.defLang}</b></td>
+	<td><select name="lang">
+		<!-- START langs -->
+		<option value="{KEY}">{ITEM}</option>
+		<!-- STOP -->
+		</select>
+		<label><input type="checkbox" name="detectLang"> {lang.detect}</label>
+	</td>
+</tr>
+<tr>
+	<td><b>Domyślny kształt</b></td>
+	<td><select name="skin">
+		<!-- START skins --><option>{ITEM}</option><!-- STOP -->
+	</select></td>
+</tr>
+<tr>
+	<td><b>{lang.siteTitle}</b></td>
+	<td><input name="title" size="36" value="{cfg.title}" maxlength="50"></td>
+</tr>
+<tr>
+	<td><b>{lang.siteDesc}</b></td>
+	<td><textarea name="metaDesc" cols="45" rows="3" style="width: 99%">{cfg.metaDesc}</textarea></td>
+</tr>
+<tr>
+	<td><b>{lang.footer}:</b></td>
+	<td><textarea name="footer" cols="45" rows="3" style="width: 99%">{clean: cfg.footer}</textarea></td>
+</tr>
+<tr>
+	<td><b>Logo:</b></td>
+	<td>
+		<input name="logo" value="{cfg.logo}">
+		<!-- IF fileman -->
+		<input type="button" value="{lang.browse} &raquo;" onclick="fileman('',this.form.logo)">
+		<!-- END -->
+	</td>
+</tr>
+
+<tr>
+	<th colspan="2">{lang.date}</th>
+</tr>
+<tr>
+	<td>
+		<b>{lang.now1}:</b>
+		<small>{lang.now2} <a href="http://php.net/strftime">strftime()</a></small>
+	</td>
+	<td><input type="text" name="now" value="{htmlspecialchars: cfg.now}" style="font-family: monospace"></td>
+</tr>
+<tr>
+	<td><b>{lang.date1}:</b><small>{lang.date2}</small></td>
+	<td><input type="text" name="date" value="{htmlspecialchars: cfg.date}" style="font-family: monospace"></td>
+</tr>
+<tr>
+	<td><b>{lang.time1}:</b><small>{lang.time2}</small></td>
+	<td><input type="text" name="time" value="{htmlspecialchars: cfg.time}" style="font-family: monospace"></td>
+</tr>
+
+<tr>
+	<th colspan="2">{lang.security}</th>
+</tr>
+<tr>
+	<td><b>{lang.BBCode}:</b><small>{lang.BBCode2}</small></td>
+	<td><input type="checkbox" name="bbcode"></td>
+</tr>
+<tr>
+	<td><b>{lang.wysiwyg}:</b><small>{lang.wysiwyg2}</small></td>
+	<td><select name="editor">
+		<option>Wbudowany edytor HTML i BBCode</option>
+		<!-- START editors -->
+		<option>{ITEM}</option>
+		<!-- STOP -->
+	</select></td>
+</tr>
+<tr>
+	<td><b>{lang.urls}:</b></td>
+	<td><select name="niceURL">
+		<option value="1">{lang.url1}</option>
+		<option value="2">{lang.url2}</option>
+		<option value="3">{lang.url3}</option>
+	</select></td>
+</tr>
+<tr>
+	<td><b>{lang.captcha}:</b><small>{lang.captcha2}</small></td>
+	<td><select name="captcha">
+		<option value="0">{lang.off}</option>
+		<option value="1">{lang.std}</option>
+		<option value="2">{lang.recap}</option>
+		<option value="3">{lang.asirra}</option>
+	</select></td>
+</tr>
+<tr id="SC">
+	<td><b>{lang.sbkey}</b></td>
+	<td>
+		<div style="float: right"><a href="http://sblam.com/key.html" target="_blank">{lang.getKey}</a></div>
+		<input name="sbKey" value="{cfg.sbKey}" size="30" placeholder="{lang.sbwhy}">
+	</td>
+</tr>
+<tr id="RC">
+	<td><b>{lang.API}:</b></td>
+	<td>
+		<div style="float: right"><a href="http://www.google.com/recaptcha" target="_blank">{lang.getKey}</a></div>
+		<input name="pubKey" value="{cfg.pubKey}" size="30" title="Public Key" style="cursor: help">
+		<input name="prvKey" value="{cfg.prvKey}" size="30" title="Private Key" style="cursor: help">
+	</td>
+</tr>
+<tr>
+	<th colspan="2">{lang.users}</th>
+</tr>
+<tr>
+	<td><b>{lang.userCom}:</b><small>{lang.userCom2}</small></td>
+	<td><input type="checkbox" name="userComm"></td>
+</tr>
+<tr>
+	<td><b>{lang.hideMail}:</b><small>{lang.hideMail2}</small></td>
+	<td><input type="checkbox" name="hideMail"></td>
+</tr>
+<tr>
+	<td><b>{lang.hideUser}:</b><small>{lang.hideUser2}</small></td>
+	<td><input type="checkbox" name="hideUser"></td>
+</tr>
+<tr>
+	<td><b>{lang.pmOn}:</b></td>
+	<td><input type="checkbox" name="pmOn"></td>
+</tr>
+<tr>
+	<td><b>{lang.pmMax}:</b></td>
+	<td><input type="number" min="1" name="pmLimit" value="{cfg.pmLimit}"></td>
+</tr>
+<tr>
+	<td><b>{lang.userFind}:</b></td>
+	<td><input type="checkbox" name="userFind"></td>
+</tr>
+<tr>
+	<td><b>{lang.userTop}:</b></td>
+	<td><input type="checkbox" name="userPanel"></td>
+</tr>
+<tr>
+	<th colspan="2">{lang.comms}</th>
+</tr>
+<tr>
+	<td><b>{lang.commNum}:</b><small>{lang.commNum2}</small></td>
+	<td><input type="number" name="commNum" min="0" value="{cfg.commNum}"></td>
+</tr>
+<tr>
+	<td><b>{lang.maxlen}:</b></td>
+	<td><input type="number" name="maxlen" min="500" max="20000" step="100" value="{cfg.maxlen}"></td>
+</tr>
+<tr>
+	<td><b>{lang.commSort}:</b></td>
+	<td>
+		<label><input type="radio" name="commSort" value="1"> {lang.commSort1}</label> &nbsp;
+		<label><input type="radio" name="commSort" value="2"> {lang.commSort2}</label>
+	</td>
+</tr>
+<tr>
+	<td><b>{lang.commPhoto}:</b></td>
+	<td>
+		<label><input type="radio" name="commPhoto" value="1"> {lang.native}</label> &nbsp;
+		<label><input type="radio" name="commPhoto" value="2"> Gravatar</label> &nbsp;
+		<label><input type="radio" name="commPhoto" value="0"> {lang.no}</label> &nbsp;
+		<fieldset class="imageset" style="display:none" id="GD">
+			<legend>{lang.gravatar}</legend>
+			<label>
+				<input type="radio" name="gdef" value="mm" />
+				<img src="http://www.gravatar.com/avatar/0?d=mm&f=y&s=50">
+			</label>
+			<label>
+				<input type="radio" name="gdef" value="identicon" />
+				<img src="http://www.gravatar.com/avatar/0?d=identicon&f=y&s=50">
+			</label>
+			<label>
+				<input type="radio" name="gdef" value="monsterid" />
+				<img src="http://www.gravatar.com/avatar/0?d=monsterid&f=y&s=50">
+			</label>
+			<label>
+				<input type="radio" name="gdef" value="wavatar" />
+				<img src="http://www.gravatar.com/avatar/0?d=wavatar&f=y&s=50">
+			</label>
+			<label>
+				<input type="radio" name="gdef" value="retro" />
+				<img src="http://www.gravatar.com/avatar/0?d=retro&f=y&s=50">
+			</label>
+			<label>
+				<input type="radio" name="gdef" value="" />
+				<img src="http://www.gravatar.com/avatar/0?f=y&s=50">
+			</label>
+		</fieldset>
+	</td>
+</tr>
+<tr>
+	<td><b>{lang.flood}:</b><small>{lang.0off}</small></td>
+	<td><input type="number" name="antyFlood" value="{cfg.antyFlood}"> sec.</td>
+</tr>
+<tr>
+	<td><b>{lang.commForm}</b></td>
+	<td>
+		<label><input type="radio" name="commForm" value="1"> {lang.always}</label>
+		<label><input type="radio" name="commForm" value="2"> {lang.scroll}</label>
+		<label><input type="radio" name="commForm" value="0"> {lang.demand}</label>
+	</td>
+</tr>
+<tr>
+	<td><b>{lang.showTitle}:</b></td>
+	<td><input type="checkbox" name="commTitle"></td>
+</tr>
+<tr>
+	<td><b>{lang.colorCode}:</b></td>
+	<td><input type="checkbox" name="colorCode"></td>
+</tr>
+<tr>
+	<td><b>{lang.blacklist}:</b></td>
+	<td><input type="checkbox" name="blacklist"></td>
+</tr>
+<tr>
+	<td><b>{lang.moderate}:</td>
+	<td><input type="checkbox" name="moderate"></td>
+</tr>
+<tr>
+	<td><b>{lang.guestComm}:</b></td>
+	<td><input type="checkbox" name="commGuest"></td>
+</tr>
+<tr>
+	<td><b>{lang.hasURL}:</b><small>{lang.spam}</small></td>
+	<td><input type="checkbox" name="URLs"></td>
+</tr>
+
+<tr>
+	<th colspan="2">{lang.poll}</th>
+</tr>
+<tr>
+	<td><b>{lang.common}:</b></td>
+	<td><input type="checkbox" name="pollComm"></td>
+</tr>
+<tr>
+	<td><b>{lang.sortPoll}:</b></td>
+	<td><input type="checkbox" name="pollSort"></td>
+</tr>
+<tr>
+	<td><b>{lang.round}:</b><small>{lang.round2}</small></td>
+	<td><input type="number" min="0" max="5" name="pollRound" value="{cfg.pollRound}"></td>
+</tr>
+
+<tr>
+	<td class="eth" colspan="2"><input type="submit" value="{lang.save}"></td>
+</tr>
+</table>
+</form>
+
+<script type="text/javascript">
+f = document.forms[0]
+function RCF()
+{
+	$('RC').style.display = (f.captcha.selectedIndex==2) ? '' : 'none'
+	$('SC').style.display = (f.captcha.selectedIndex==1) ? '' : 'none'
+	f.prvKey.required = f.pubKey.required = f.captcha.selectedIndex==2
+}
+function GDE()
+{
+	$('GD').style.display = (f.commPhoto[1].checked) ? '' : 'none'
+}
+f.captcha.onchange = RCF
+f.commPhoto[0].onchange = f.commPhoto[1].onchange = f.commPhoto[2].onchange = GDE
+RCF()
+GDE()
+f.niceURL.now = f.niceURL.selectedIndex
+f.niceURL.onchange = function(e)
+{
+	if(this.selectedIndex < 2)
+	if(!confirm('{lang.warn}')) this.selectedIndex = this.now
+}
+include('lib/forms.js')
+</script>

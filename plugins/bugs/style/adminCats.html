@@ -1,0 +1,60 @@
+<h1>{lang.cats}</h1>
+<form action="" method="post">
+<table cellspacing="1" class="tb">
+<tr>
+	<th>{lang.name}</th>
+	<th style="width: 40px">ID</th>
+	<th style="width: 50px">{lang.disp}</th>
+	<th style="width: 170px">{lang.opt}</th>
+	<th style="width: 20px"></th>
+</tr>
+
+<!-- START cat -->
+
+<!-- IF section -->
+<tr>
+	<th colspan="5">{section}</th>
+</tr>
+<!-- END -->
+
+<tr>
+	<td>{name} ({num})</td>
+	<td align="center">{id}</td>
+	<td align="center">{access}</td>
+	<td align="center"><a href="{url}">{lang.edit}</a></td>
+	<td align="center"><input type="checkbox" name="x[{id}]" /></td>
+</tr>
+
+<!-- STOP -->
+
+</table>
+
+<table cellspacing="1" class="tb">
+<caption>{lang.selected}</caption>
+<tr>
+	<td style="width: 30%"><b>1. {lang.section}:</b></td>
+	<td><select name="sect"><option value="N">{lang.noch}</option>
+
+	<!-- START section -->
+	<option value="{ID}">{title}</option>
+	<!-- STOP -->
+
+	</select></td>
+</tr>
+<tr>
+	<td><b>2. {lang.access}:</b></td>
+	<td><select name="acc">
+		<option value="N">{lang.noch}</option>
+		<option value="1">{lang.on}</option>
+		{langs}
+		<option value="2">{lang.off}</option>
+	</select></td>
+</tr>
+<tr>
+	<td><b>3. {lang.opt}:</b></td>
+	<td><input type="checkbox" name="del" /> {lang.delch}</td>
+</tr>
+<tr>
+	<td class="eth" colspan="2"><input type="submit" value="OK" /></td>
+</tr>
+</table>

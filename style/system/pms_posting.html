@@ -1,0 +1,55 @@
+<!-- IF preview -->
+<h1>{lang.preview}</h1>
+<div class="box">{nl2br: preview}</div>
+<!-- END -->
+
+<form action="{url}" method="post" id="pm">
+<h1>{this.title}</h1>
+
+<table cellspacing="1" class="tb">
+<tr>
+	<td style="width: 25%"><b>1. {lang.pm13}:</b></td>
+	<td><input name="to" value="{pm.to}" maxlength="30" size="30" ></td>
+</tr>
+<tr>
+	<td><b>2. {lang.topic}:</b></td>
+	<td><input name="topic" value="{pm.topic}" size="30" maxlength="40" ></td>
+</tr>
+<tr>
+	<td colspan="2" align="center">
+		<textarea name="txt" rows="15" cols="50" style="width: 95%">{pm.txt}</textarea>
+	</td>
+</tr>
+<tr>
+	<td colspan="2" class="eth">
+		<input type="submit" value="{lang.preview}" >
+		<input type="submit" value="{lang.send}" name="send" >
+		<input type="submit" value="{lang.later}" name="save" >
+	</td>
+</tr>
+</table>
+</form>
+
+<!-- IF bbcode -->
+
+<script type="text/javascript">
+f = document.forms['pm']
+e = new Editor(f.txt, 1)
+e.emots()
+e.protect()
+if(f[0].value) f[1].focus(); else f[0].focus()
+
+<!-- IF color -->
+include('lib/prettify/prettify.css')
+include('lib/prettify/prettify.js', function() { prettyPrint() })
+<!-- END -->
+
+</script>
+
+<!-- ELSE -->
+
+<script type="text/javascript">
+var x = document.forms['pm'].bbc; x.disabled=true; x.checked=false
+</script>
+
+<!-- END -->

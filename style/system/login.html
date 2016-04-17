@@ -1,0 +1,27 @@
+<form method="post">
+<h1>{lang.logme}</h1>
+<div class="box">
+	<table style="width: 400px; margin: auto" cellpadding="8">
+		<tr>
+			<th scope="row" style="text-align: right">{lang.login}</th>
+			<td><input name="u" autofocus required></td>
+		</tr>
+		<tr>
+			<th scope="row" style="text-align: right">{lang.pass}</th>
+			<td><input type="password" name="p" required></td>
+		</tr>
+		<tr>
+			<th scope="row" style="text-align: right">{lang.opt}</th>
+			<td><label><input type="checkbox" name="auto"> {lang.remlog}</label></td>
+		</tr>
+	</table>
+	<div style="text-align: center; margin: 6px 0">
+		<input type="submit" value="{lang.logme}" class="buttonBlue">
+	</div>
+	<!-- IF register -->
+	<div style="text-align: center; margin: 20px 0 4px 0">
+		<a href="{register}">Nie masz konta? Kliknij, aby założyć!</a>
+	</div>
+	<!-- END -->
+</div>
+</form>

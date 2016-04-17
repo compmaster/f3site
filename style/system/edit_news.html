@@ -1,0 +1,102 @@
+<form id="news" method="post" f3:array="news">
+<h1>{this.title}</h1>
+
+<table class="tb">
+<tbody>
+<tr>
+	<td style="width: 31%"><b>1. {lang.cat}:</b></td>
+	<td><select name="cat"><option value="0">{lang.choose}</option>{cats}</select></td>
+</tr>
+<tr>
+	<td><b>2. {lang.title}:</b></td>
+	<td><input maxlength="50" name="name" value="{news.name}" style="width: 98%" required></td>
+</tr>
+<tr>
+	<td><b>3. {lang.publish}:</b></td>
+	<td><input type="checkbox" name="access"></td>
+</tr>
+<tr>
+	<td><b>4. {lang.img}:</b></td>
+	<td>
+		<input name="img" value="{news.img}">
+		<!-- IF fileman -->
+		<input type="button" value="{lang.images} &raquo;" onclick="fileman('img',this.form.img)">
+		<!-- END -->
+	</td>
+</tr>
+<tr>
+	<td><b>5. {lang.opt}:</b></td>
+	<td>
+		<label><input type="checkbox" name="br" > {lang.br}</label><br >
+		<label><input type="checkbox" name="emo" > {lang.emoon}</label><br >
+		<!--<label><input type="checkbox" name="com" > {lang.comon}</label><br >-->
+		<!--<label><input type="checkbox" name="pin" > {lang.pin}</label><br >-->
+		<label><input type="checkbox" name="fn" onclick="FN()"> {lang.ftxt}</label>
+	</td>
+</tr>
+<tr>
+	<td colspan="2" style="text-align: center">
+		<textarea name="txt" rows="18" style="width: 100%">{clean: news.txt}</textarea>
+	</td>
+</tr>
+</tbody>
+
+<!-- Pe³na tre¶æ -->
+<tbody id="full" style="display: none">
+<tr>
+	<th colspan="2">{lang.ftxt}</th>
+</tr>
+<tr>
+	<td colspan="2" style="text-align: center">
+		<textarea name="text" rows="20" style="width: 100%">{clean: full}</textarea>
+	</td>
+</tr>
+</tbody>
+
+<!-- Przyciski -->
+<tfoot>
+<tr>
+	<td class="eth" colspan="2">
+		<input type="button" value="{lang.preview}" onclick="P()">
+		<input type="submit" value="{lang.save}" style="font-weight: bold">
+		<!-- IF id -->
+		<input type="submit" name="asNew" value="{lang.asNew}">
+		<!-- END -->
+	</td>
+</tr>
+</tfoot>
+</table>
+</form>
+
+<script type="text/javascript">
+f = document.forms['news'];
+f.onsubmit = function()
+{
+	if(f.name.value==0) { f.name.focus(); return false }
+	if(f.cat.value==0) return confirm('{lang.noCat}')
+}
+e = new Editor(f.txt);
+e.emots();
+e.protect();
+var done = f.fn.checked;
+
+if(f[0].value == 0) f[0].focus(); else f[1].focus();
+
+function FN(x)
+{
+	show('full');
+	if(done!=1 || x==1)
+	{
+		var e2 = new Editor(f.text);
+		e2.emots();
+		done = 1;
+	}
+}
+function P()
+{
+	e.preview({NL: f.br.checked, EMOTS: f.emo.checked}, null,
+	(f.img.value && '<img src="'+f.img.value+'" class="newsimg" >')+f.txt.value+'<br ><br >'+f.text.value);
+}
+if(done==1) FN(1);
+include('lib/forms.js')
+</script>

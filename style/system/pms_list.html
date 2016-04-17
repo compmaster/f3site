@@ -1,0 +1,46 @@
+<form action="{url}" method="post" id="pms">
+<h1>{this.title}</h1>
+
+<table cellspacing="1" class="tb">
+<tr>
+	<th>{lang.topic}</th>
+	<th style="width: 160px">{who}</th>
+	<th style="width: 7px"><input type="checkbox" onclick="sAll(this)" ></th>
+</tr>
+
+<!-- START pm -->
+
+<tr>
+	<td><a href="{url}"><!-- IF new --><b>{topic}</b><!-- ELSE -->{topic}<!-- END --></a></td>
+	<td align="center"><a href="{userURL}">{login}</a></td>
+	<td><input type="checkbox" name="x[{id}]" ></td>
+</tr>
+
+<!-- STOP -->
+
+<tr>
+	<td class="eth">
+		<input type="submit" value="{lang.delch}" id="del" >
+	</td>
+	<td colspan="2" class="eth">
+		{lang.page}: {pages}
+	</td>
+</tr>
+</table>
+</form>
+
+<script type="text/javascript">
+function sAll(s)
+{
+	var x = document.forms['pms'].elements;
+	for(var i=0;i<x.length;i++) { x[i].checked = s.checked }
+}
+$('del').onclick = function()
+{
+	if(confirm('{lang.pm26}'))
+	{
+		send(this)
+	}
+	return false
+}
+</script>

@@ -1,0 +1,27 @@
+<h1>{poll.name}</h1>
+<div class="box" style="text-align: center">{poll.q}
+<div style="margin:15px 0">
+<svg version="1.1" viewBox="0 0 100 100" style="display:inline-block;width:50%;margin:0 8px;min-width:200px">
+
+<!-- START item -->
+<path stroke="black" stroke-width="0.1" d="M 50 50 L {x1} {y1} A 50 50 0 {large} 1 {x2} {y2} Z" fill="{color}">
+	<title>{label} ({percent}%)</title>
+</path>
+<!-- STOP -->
+
+</svg>
+<table style="display:inline-block;vertical-align:top;border-spacing:5px 4px">
+
+<!-- START item -->
+<tr>
+	<td style="background:{color};padding:0 7px"></td>
+	<td style="text-align:left;padding:0">{label}</td>
+	<td style="text-align:right;padding:0">{percent}%</td>
+</tr>
+<!-- STOP -->
+
+</table>
+</div>
+
+{lang.votes}: <b>{poll.num}</b> | Start: <b>{poll.date}</b> | <a href="{archive}">{lang.archive}</a>
+</div>

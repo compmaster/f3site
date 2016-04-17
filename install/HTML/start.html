@@ -1,0 +1,21 @@
+<form action="" method="post">
+<h2>{lang.installer}</h2>
+<div id="box">
+	<p>{lang.intro}</p>
+	<fieldset>
+		<legend>{lang.engine}</legend>
+		<label>
+			<input type="radio" value="mysql" name="type" checked="checked" />
+			<b>MySQL</b><br /><span>{lang.MySQL}</span>
+		</label>
+		<label>
+			<input type="radio" value="sqlite" name="type" />
+			<b>SQLite</b><br /><span>{lang.SQLite}</span>
+		</label>
+	</fieldset>
+	<div id="buttons">
+		<input type="hidden" name="stage" value="1" />
+		<input type="submit" value="{lang.next} &gt;&gt;" />
+	</div>
+</div>
+</form>

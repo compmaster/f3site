@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{LANG}">
+<head>
+	<title>{PAGE TITLE} - {MAIN TITLE}</title>
+	<base href="{URL}">
+	<meta name="description" content="{DESCRIPTION}">
+	<link rel="stylesheet" href="style/system/styles.css" type="text/css">
+	<script type="text/javascript" src="lib/js.js"></script>
+</head>
+<body>
+	<header>
+		<a href="" class="logoTop"><img src="{cfg.logo}" alt="{MAIN TITLE}"></a>
+		{USER PANEL}
+	</header>
+	<nav>
+		<span id="path">
+			<a href="">{lang.mainPage}</a> {TRAIL}
+		</span>
+		<a href="url(cats)">{lang.cats}</a>
+		<a href="url(users)">{lang.users}</a>
+		<a href="forum">FORUM</a>
+	</nav>
+	<div id="all">
+		<div id="main">{CONTENT}</div>
+		<div id="left">{LEFT MENU}</div>
+		<div id="right">{RIGHT MENU}</div>
+	</div>
+	<footer>
+		<div class="links">
+			<a href="url(archive)">{lang.archive}</a> | 
+			<a href="url(groups)">{lang.groups}</a>
+		</div>
+		<div class="copyright">{FOOTER}</div>
+	</footer>
+</body>
+</html>
+<!--<div id="flags">
+			<a href="url(de)"><img src="img/de.png" alt="de"></a>
+			<a href="url(en)"><img src="img/gb.png" alt="en"></a>
+			<a href="url(pl)"><img src="img/pl.png" alt="pl"></a>
+		</div>-->

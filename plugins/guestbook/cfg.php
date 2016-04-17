@@ -1,0 +1,1 @@
+<?php $cfg+=Array('gbOn'=>1,'gbPost'=>1,'gbStyle'=>'classic','gbBan'=>'','gbRules'=>'','gbIntro'=>'','gbNum'=>12);

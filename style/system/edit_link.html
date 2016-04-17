@@ -1,0 +1,56 @@
+<form action="" id="link" method="post" f3:array="link">
+<h1>{this.title}</h1>
+
+<table cellspacing="1" class="tb">
+<tr>
+  <td style="width: 31%"><b>1. {lang.cat}:</b></td>
+  <td><select name="cat"><option value="0">{lang.choose}</option>{cats}</select></td>
+</tr>
+<tr>
+  <td><b>2. {lang.name}:</b></td>
+  <td><input maxlength="50" name="name" size="40" value="{link.name}" ></td>
+</tr>
+<tr>
+  <td><b>3. {lang.publish}:</b></td>
+  <td><input type="checkbox" name="access" ></td>
+</tr>
+<tr>
+  <td><b>4. {lang.priot}:</b></td>
+  <td><select name="priority">
+		<option value="1">{lang.high}</option>
+		<option value="2">{lang.normal}</option>
+		<option value="3">{lang.low}</option>
+	</select></td>
+</tr>
+<tr>
+  <td><b>5. {lang.desc}:</b></td>
+  <td><textarea name="dsc" style="width: 95%">{link.dsc}</textarea></td>
+</tr>
+<tr>
+  <td><b>6. {lang.adr}:</b></td>
+  <td><input size="40" maxlength="200" name="adr" value="{link.adr}" ></td>
+</tr>
+<tr>
+  <td><b>7. {lang.opt}:</b></td>
+  <td><label><input type="checkbox" name="nw" > {lang.newTab}</label></td>
+</tr>
+<tr>
+  <td colspan="2" class="eth">
+		<input type="submit" value="{lang.save}" style="font-weight: bold" >
+		<!-- IF id -->
+		<input type="submit" name="asNew" value="{lang.asNew}" >
+		<!-- END -->
+	</td>
+</tr>
+</table>
+</form>
+
+<script type="text/javascript">
+f = document.forms['link']
+f.onsubmit = function()
+{
+	if(f.name.value==0) { f.name.focus(); return false }
+	if(f.cat.value==0) return confirm('{lang.noCat}')
+}
+if(f[0].value == 0) f[0].focus(); else f[1].focus()
+</script>

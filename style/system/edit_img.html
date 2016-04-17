@@ -1,0 +1,108 @@
+<form id="img" method="post" f3:array="img">
+<h1>{this.title}</h1>
+
+<table cellspacing="1" class="tb">
+<tbody>
+<tr>
+  <td style="width: 140px"><b>1. {lang.cat}:</b></td>
+  <td><select name="cat"><option value="0">{lang.choose}</option>{cats}</select></td>
+</tr>
+<tr>
+  <td><b>2. {lang.title}:</b></td>
+  <td><input maxlength="50" size="40" name="name" value="{img.name}" ></td>
+</tr>
+<tr>
+  <td><b>3. {lang.publish}:</b></td>
+  <td><input type="checkbox" name="access" ></td>
+</tr>
+<tr>
+  <td><b>4. {lang.priot}:</b></td>
+  <td><select name="priority">
+		<option value="1">{lang.high}</option>
+		<option value="2">{lang.normal}</option>
+		<option value="3">{lang.low}</option>
+	</select></td>
+</tr>
+<tr>
+  <td><b>5. {lang.img}:</b></td>
+  <td>
+		<input name="file" id="file" maxlength="200" value="{img.file}" >
+		<input type="button" value="{lang.preview}" onclick="prev('file')" >
+		<!-- IF fileman -->
+		<input type="button" value="{lang.images} &raquo;" onclick="fileman('img',this.form.file)" >
+		<!-- END -->
+	</td>
+</tr>
+<tr>
+  <td><b>6. {lang.minimg}:</b><br ><small>{lang.minimgd}</small></td>
+  <td>
+		<input name="fm" maxlength="50" value="{img.th}" >
+		<input type="button" value="{lang.preview}" onclick="prev('fm')" >
+		<!-- IF fileman -->
+		<input type="button" value="{lang.images} &raquo;" onclick="fileman('img',this.form.fm)" >
+		<!-- END -->
+	</td>
+</tr>
+<tr>
+  <td><b>7. {lang.author}:</b><br ><small>{lang.nameid}</small></td>
+  <td><input name="author" maxlength="30" value="{img.author}" ></td>
+</tr>
+<tr>
+  <td><b>8. {lang.type}:</b></td>
+  <td>
+		<label><input type="radio" name="type" value="1" > {lang.img}</label>&nbsp;
+		<label><input type="radio" name="type" value="2" > Flash</label>&nbsp;
+		<label><input type="radio" name="type" value="3" > Audio</label>&nbsp;
+		<label><input type="radio" name="type" value="4" > Video</label>
+	</td>
+</tr>
+<tr>
+  <td><b>9. {lang.isize}:</b><br ><small>{lang.isized}</small></td>
+  <td>
+		<input name="s1" value="{size.0}" size="2" maxlength="4" > x
+		<input name="s2" value="{size.1}" size="2" maxlength="4" > (px)
+	</td>
+</tr>
+<tr>
+	<th colspan="2">{lang.desc}</th>
+</tr>
+<tr>
+  <td colspan="2" align="center">
+		<textarea name="dsc" rows="12" style="width: 100%">{clean: img.dsc}</textarea>
+	</td>
+</tr>
+<tr>
+  <td colspan="2" class="eth">
+		<input type="button" value="{lang.descPreview}" onclick="e.preview()" >
+		<input type="submit" value="{lang.save}" style="font-weight: bold" >
+		<!-- IF id -->
+		<input type="submit" name="asNew" value="{lang.asNew}" >
+		<!-- END -->
+	</td>
+</tr>
+</tbody>
+</table>
+</form>
+<script type="text/javascript">
+f = document.forms['img'];
+f.onsubmit = function()
+{
+	if(f.name.value==0) { f.name.focus(); return false }
+	if(f.cat.value==0) return confirm('{lang.noCat}')
+}
+function prev(x)
+{
+	if(f[x].value != 0 && f[x].value != 'img/') 
+	{
+		okno(f[x].value,600,450)
+	}
+	else
+	{
+		f[x].focus()
+	}
+}
+e = new Editor(f.dsc);
+e.protect();
+if(f[0].value == 0) f[0].focus(); else f[1].focus();
+include('lib/forms.js')
+</script>

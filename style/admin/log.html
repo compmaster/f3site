@@ -1,0 +1,32 @@
+<form method="post" onsubmit="return confirm('{lang.delc}')">
+<h1>{lang.log}</h1>
+
+<table class="tb">
+<tr>
+	<th>{lang.added}</th>
+	<th>{lang.user}</th>
+	<th>{lang.title}</th>
+	<th style="width: 20px"><input type="checkbox" onchange="selAll(this)"></th>
+</tr>
+
+<!-- START event -->
+<tr>
+	<td style="text-align: center">{date}</td>
+	<td style="text-align: center">
+		<!-- IF user -->
+		<a href="{user}" title="IP: {ip}">{login}</a>
+		<!-- ELSE -->
+		{ip}
+		<!-- END -->
+	</td>
+	<td>{text}</td>
+	<td><input type="checkbox" name="x[{id}]"></td>
+</tr>
+<!-- STOP -->
+
+<tr>
+	<td colspan="2" class="eth">{lang.page}: {pages}</td>
+	<td colspan="2" class="eth"><input type="submit" value="{lang.del}"></td>
+</tr>
+</table>
+</form>

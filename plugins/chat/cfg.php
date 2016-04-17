@@ -1,0 +1,1 @@
+<?php $cfg+=array('chatMsgLen'=>500, 'chatNickLen'=>20, 'chatLast'=>5);

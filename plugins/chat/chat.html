@@ -1,0 +1,23 @@
+<div id="chat">
+<h1>CHAT</h1>
+<div class="box">
+	<div class="chat">
+	<table id="chatOut" cellspacing="0" cellpadding="2">
+
+	<!-- START message -->
+	<tr>
+		<td class="chatTime">{time}</td>
+		<td class="chatNick">{nick}</td>
+		<td class="chatMsg">{msg}</td>
+	</tr>
+	<!-- STOP -->
+
+	</table></div>
+	<textarea id="chatIn" class="chatIn" cols="50" rows="2"></textarea>
+</div>
+</div>
+
+<script type="text/javascript">
+var chat = new Chat('chat')
+chat.nick = "{nick}";
+</script>

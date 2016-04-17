@@ -1,0 +1,38 @@
+<?php
+$lang+=Array(
+'BUGS'    => 'Issue system',
+'bugsOff' => 'Issue system is not available now. Try again later.',
+'postBug' => 'Report issue',
+'TOC'     => 'Home',
+'wait'    => 'Wait...',
+'sent'    => 'Sent ',
+'legend'  => 'Legend',
+'voted'   => 'You have already rated it - your mark:',
+'logtov'  => 'Login to rate it.',
+
+'level'=>'Level',
+'L1'=>'Critical',
+'L2'=>'Important',
+'L3'=>'Natural',
+'L4'=>'Minor',
+
+'status'=>'Status',
+'S1'=>'Done',
+'S2'=>'Rejected',
+'S3'=>'In progress',
+'S4'=>'New',
+'S5'=>'Waiting for acceptation',
+
+'noRight' => 'You have no privileges to edit this issue!',
+'editBug' => 'Edit issue',
+'bugsFill'=> 'Fill required fields!',
+'bugsMax' => 'Text may contain maximum %d characters.',
+'bugsEnv' => 'Environment',
+'optional'=> '(optional)',
+'guest'   => 'Guest',
+'badCode' => 'Code from image is not correct.',
+'flood'   => 'You cannot post new issue so fast after previous. Try in a moment.',
+'saved'   => 'Issue has been saved.',
+'queued'  => 'Issue has been saved but will be visible after our moderators have accepted it.',
+'error'   => 'An error occured: ',
+);

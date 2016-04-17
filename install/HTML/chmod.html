@@ -1,0 +1,25 @@
+<form action="">
+<h2>{lang.chmod}</h2>
+<table cellspacing="1" class="tb">
+<tr>
+	<td colspan="3">{lang.chmodInfo} <a href="http://{_SERVER.HTTP_HOST}">{_SERVER.HTTP_HOST}</a></td>
+</tr>
+<tr>
+	<th>{lang.place}</th>
+	<th>{lang.bad}</th>
+	<th>{lang.good}</th>
+</tr>
+
+<!-- START chmod -->
+<tr>
+	<td>{file}</td>
+	<td style="color: red">{bad}</td>
+	<td style="color: green; font-weight: bold">{good}</td>
+</tr>
+<!-- STOP -->
+
+<tr>
+	<th colspan="3"><input type="submit" value="{lang.test}" /></th>
+</tr>
+</table>
+</form>

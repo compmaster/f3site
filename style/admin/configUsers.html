@@ -1,0 +1,103 @@
+<form method="post" f3:array="cfg" f3:mode="isset">
+<h1>{lang.ua}</h1>
+
+<table class="tb">
+<tr>
+	<td style="width: 35%">
+		<b>{lang.reg}:</b>
+	</td>
+	<td>
+		<input type="checkbox" name="reg">
+	</td>
+</tr>
+<tr>
+	<td>
+		<b>{lang.domainban}:</b><br><br>
+		<small>{lang.domainex}</small>
+	</td>
+	<td>
+		<textarea cols="40" rows="4" name="mailban">{mailBan}</textarea>
+	</td>
+</tr>
+<tr>
+	<td>
+		<b>{lang.nickban}:</b><br><br>
+		<small>{lang.nickex}</small>
+	</td>
+	<td>
+		<textarea cols="40" rows="4" name="nickban">{nickBan}</textarea>
+	</td>
+</tr>
+<tr>
+	<td>
+		<b>{lang.logins}:</b>
+	</td>
+	<td>
+		<label><input type="radio" name="logins" value="1"> {lang.login1}</label><br>
+		<label><input type="radio" name="logins" value="2"> {lang.login2}</label><br>
+		<label><input type="radio" name="logins" value="0"> {lang.login3}</label>
+	</td>
+</tr>
+<tr>
+	<td>
+		<b>{lang.method}:</b>
+	</td>
+	<td>
+		<label><input type="radio" name="actmeth" value="1"> {lang.auto}</label><br>
+		<label><input type="radio" name="actmeth" value="2"> {lang.bymail}</label><br>
+		<label><input type="radio" name="actmeth" value="3"> {lang.byadmin}</label>
+	</td>
+</tr>
+<tr>
+	<td>
+		<b>{lang.nomail}:</b>
+	</td>
+	<td>
+		<input type="checkbox" name="nomail">
+	</td>
+</tr>
+<tr>
+	<th colspan="2">{lang.photo}</th>
+</tr>
+<tr>
+	<td>
+		<b>{lang.upload}:</b>
+	</td>
+	<td>
+		<input type="checkbox" name="upload">
+	</td>
+</tr>
+<tr>
+	<td>
+		<b>{lang.resize}:</b>
+	</td>
+	<td>
+		<input type="checkbox" name="autoResize">
+	</td>
+</tr>
+<tr>
+	<td>
+		<b>{lang.maxSize}:</b>
+	</td>
+	<td>
+		{lang.width} <input name="maxDim1" value="{cfg.maxDim1}" size="5" maxlength="5" type="number">
+		{lang.height} <input name="maxDim2" value="{cfg.maxDim2}" size="5" maxlength="5" type="number"> px ...
+		<input name="maxSize" value="{cfg.maxSize}" size="5" maxlength="5" type="number"> KB
+	</td>
+</tr>
+<tr>
+	<td class="eth" colspan="2"><input type="submit" value="OK"></td>
+</tr>
+</table>
+</form>
+<script>
+var f = document.forms[0]
+f.nomail.onchange = function()
+{
+	if(this.checked && f.actmeth[1].checked) f.actmeth[0].click()
+}
+f.actmeth[1].onchange = function()
+{
+	if(this.checked) f.nomail.checked = false
+}
+</script>

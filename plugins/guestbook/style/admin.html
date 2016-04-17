@@ -1,0 +1,61 @@
+<h1>{lang.gbPrune}</h1>
+<form action="" method="post">
+<div class="box" style="text-align: center">
+	{lang.gbBefore} (YYYY-MM-DD):
+	<input type="datetime" name="prune" />
+	<input type="submit" value="OK" />
+</div>
+</form>
+
+<!-- IF cfg -->
+<form action="" method="post" f3:array="cfg" f3:mode="isset">
+<h1>{lang.opt}</h1>
+<table cellspacing="1" class="tb">
+<tr>
+	<td style="width: 33%"><b>{lang.gbOn}:</b></td>
+	<td><input type="checkbox" name="gbOn" /></td>
+</tr>
+<tr>
+	<td><b>{lang.gbMayPost}:</b></td>
+	<td>
+		<label><input type="radio" name="gbPost" value="1" /> {lang.all}</label>
+		<label><input type="radio" name="gbPost" value="2" /> {lang.logged}</label>
+		<label><input type="radio" name="gbPost" value="0" /> {lang.noOne}</label>
+	</td>
+</tr>
+<tr>
+	<td><b>{lang.gbNum}:</b></td>
+	<td><input type="number" name="gbNum" size="5" value="{cfg.gbNum}" /></td>
+</tr>
+<tr>
+	<td><b>{lang.skin}:</b></td>
+	<td><select name="gbSkin">{styles}</select></td>
+</tr>
+<tr>
+	<td><b>{lang.gbBan}:</b><small>{lang.gbBan2}</small></td>
+	<td><textarea name="gbBan" cols="30" rows="4">{cfg.gbBan}</textarea></td>
+</tr>
+<tr>
+	<td><b>{lang.gbRules}:</b><small>{lang.gbRules2}</small></td>
+	<td><textarea name="gbRules" cols="50" rows="9" style="width: 99%">{cfg.gbRules}</textarea></td>
+</tr>
+<tr>
+	<td><b>{lang.gbIntro}:</b></td>
+	<td><textarea name="gbIntro" cols="50" rows="8" style="width: 99%">{cfg.gbIntro}</textarea></td>
+</tr>
+<tr>
+	<td colspan="2" class="eth">
+		<input type="button" value="{lang.preview}" onclick="if(e1)e1.preview();if(e2)e2.preview()" />
+		<input type="submit" value="{lang.save}" />
+	</td>
+</tr>
+</table>
+</form>
+<script type="text/javascript">
+var f = document.forms[1],e1,e2;
+f.gbRules.onfocus = function() { e1 = new Editor(this); this.onfocus = undefined }
+f.gbIntro.onfocus = function() { e2 = new Editor(this); this.onfocus = undefined }
+include('lang/' + document.documentElement.lang + '/edit.js')
+include('lib/editor.js')
+</script>
+<!-- END -->

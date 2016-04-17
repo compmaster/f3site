@@ -1,0 +1,76 @@
+<div id="actions">
+	<a href="http://dhost.info/compmaster" class="web">{lang.store}</a>
+	<a href="url(admin:help#addons)" class="help">{lang.help}</a>
+</div>
+
+<!-- IF setup -->
+
+<form action="" method="post">
+<h1>{name}</h1>
+<table cellspacing="1" class="tb">
+<tr>
+	<th style="width: 99px">{lang.author}:</th>
+	<td><!-- IF www --><a href="{www}">{credits}</a><!-- ELSE -->{credits}<!-- END --></td>
+</tr>
+<tr>
+	<th>{lang.ver}:</th>
+	<td>{ver}</td>
+</tr>
+<tr>
+	<th>{lang.opt}:</th>
+	<td>
+		<!-- START options -->
+		<label><input type="checkbox" name="{KEY}" > {ITEM}</label><br >
+		<!-- STOP -->
+
+		<!-- IF menu -->
+		<label><input type="checkbox" name="m" checked="checked" > {lang.menuItem}</label>
+		<div style="margin: 9px">
+			<!-- START menu -->
+			<label>{lang.title}: <input type="text" name="mt[]" value="{title}" ></label>
+			<label>{lang.pos}. <input size="2" name="mp[]" value="2" ></label>
+			<select name="mid[]">{menus}</select><br >
+			<!-- STOP -->
+		</div>
+		<!-- END -->
+	</td>
+</tr>
+<tr>
+	<td class="eth" colspan="2"><input type="submit" name="setup" value="OK" ></td>
+</tr>
+
+</table>
+</form>
+
+<!-- ELSE -->
+
+<h1>{lang.ready}</h1>
+<table class="tb">
+<tr>
+	<th>{lang.name}</th>
+	<th>Folder</th>
+	<th>{lang.opt}</th>
+</tr>
+
+<!-- START ready -->
+<tr>
+	<td style="color: green">{name}</td>
+	<td align="center">{id}</td>
+	<td align="center">
+		<!-- IF config --><a href="{config}">{lang.conf}</a><!-- END -->
+		<!-- IF setup -->&nbsp; <a href="{setup}">{lang.uninst}</a><!-- END -->
+	</td>
+</tr>
+<!-- STOP -->
+
+<!-- START unready -->
+<tr>
+	<td>{name}</td>
+	<td align="center">{id}</td>
+	<td align="center"><a href="{setup}">{lang.inst}</a></td>
+</tr>
+<!-- STOP -->
+
+</table>
+
+<!-- END -->

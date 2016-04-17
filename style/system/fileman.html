@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>File Manager</title>
+	<meta name="robots" content="noindex">
+	<link rel="stylesheet" type="text/css" href="style/system/styles.css">
+	<script type="text/javascript" src="lib/fileman.js"></script>
+	<style type="text/css">
+	body {width: 100%; margin: 0}
+	td a {margin-left: 25px}
+	.f {background: url(img/icon/file.png) no-repeat 6px center !important}
+	.d {background: url(img/icon/folder.png) no-repeat 6px center !important}
+	.tb {margin-bottom: 0}
+	</style>
+</head>
+<body>
+
+<h1>{lang.dir}: <tt>{dir}</tt></h1>
+<table cellspacing="1" class="tb">
+<tbody>
+<tr>
+	<th style="width: 420px">{lang.name}</th>
+	<th>{lang.opt}</th>
+</tr>
+
+<!-- IF parent -->
+<tr><td class="d"><a href="{parent}">{lang.parent}</a></td><td></td></tr>
+<!-- END -->
+
+<!-- START folder -->
+<tr>
+	<td class="d"><a href="{url}">{name}</a></td>
+	<td><a href="#" onclick="return put(this)">{lang.put} &rArr;</a></td>
+</tr>
+<!-- STOP -->
+
+<!-- START file -->
+<tr>
+	<td class="f"><a href="{url}">{name}</a></td>
+	<td><a href="#" onclick="return put(this)">{lang.put} &rArr;</a></td>
+</tr>
+<!-- STOP -->
+
+<!-- IF mayUpload -->
+<tr>
+	<th colspan="2" style="text-align: center; padding: 9px">
+		<form action="" method="post" enctype="multipart/form-data">
+			<input type="file" size="50" name="file[]" multiple="multiple" >
+			<div style="margin-top: 8px">
+				<input type="button" value="{lang.add}" onclick="add()" >
+				<input type="submit" value="{lang.load}" >
+			</div>
+		</form>
+	</th>
+</tr>
+<!-- END -->
+
+</tbody>
+</table>
+
+</body>
+</html>

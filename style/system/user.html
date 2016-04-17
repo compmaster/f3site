@@ -1,0 +1,121 @@
+<h1>{u.login}</h1>
+<table cellpadding="4" cellspacing="1" class="tb">
+<tbody>
+<tr>
+	<td style="width: 30%"><b>{lang.joined}:</b></td>
+	<td>{join_date}</td>
+</tr>
+<tr>
+	<td><b>{lang.lastv}:</b></td>
+	<td>{last_visit}</td>
+</tr>
+
+<!-- IF u.sex -->
+<tr>
+	<td><b>{lang.sex}:</b></td>
+	<td>{u.sex}</td>
+</tr>
+<!-- END -->
+
+<!-- IF u.city -->
+<tr>
+	<td><b>{lang.from}:</b></td>
+	<td>{u.city}</td>
+</tr>
+<!-- END -->
+
+<!-- IF u.www -->
+<tr>
+	<td><b>{lang.wwwp}:</b></td>
+	<td><a href="{u.www}">{u.www}</a></td>
+</tr>
+<!-- END -->
+
+<!-- IF u.mail -->
+<tr>
+ <td><b>{lang.mail}:</b></td>
+ <td><a href="mailto:{u.mail}">{u.mail}</a></td>
+</tr>
+<!-- END -->
+
+<!-- IF u.gg -->
+<tr>
+	<td><b>Gadu-Gadu:</b></td>
+	<td style="background: url(http://status.gadu-gadu.pl/users/status.asp?id={u.gg}) no-repeat 2px 3px transparent">
+		<a href="gg:{u.gg}" style="padding-left: 22px">{u.gg}</a>
+	</td>
+</tr>
+<!-- END -->
+
+<!-- IF u.tlen -->
+<tr>
+	<td><b>Tlen:</b></td>
+	<td style="background: url(http://status.tlen.pl/?u={u.tlen}&amp;t=1) no-repeat 3px 50%">
+		<a href="http://ludzie.tlen.pl/{u.tlen}" style="padding-left: 22px">{u.tlen}</a>
+	</td>
+</tr>
+<!-- END -->
+
+<!-- IF u.icq -->
+<tr>
+	<td><b>ICQ:</b></td>
+	<td style="background: url(http://status.icq.com/online.gif?icq={u.icq}&amp;img=5) no-repeat 3px">
+		<a href="http://www.icq.com/people/about_me.php?uin={u.icq}" style="padding-left: 22px">{u.icq}</a>
+	</td>
+</tr>
+<!-- END -->
+
+<!-- IF u.jabber -->
+<tr>
+	<td><b>Jabber:</b></td>
+	<td style="background: url(img/icon/bulb.png) no-repeat 3px 50%">
+		<a href="xmpp:{u.jabber}" style="padding-left: 22px">{u.jabber}</a>
+	</td>
+</tr>
+<!-- END -->
+
+<!-- IF u.skype -->
+<tr>
+	<td><b>Skype:</b></td>
+	<td>
+		<!-- Skype My status button http://www.skype.com/go/skypebuttons -->
+		<a href="skype:{u.skype}?call" onclick="return confirm('{lang.callq}{u.skype}?')">
+			<img src="http://mystatus.skype.com/smallclassic/{u.skype}" alt="My status" >
+		</a>
+	</td>
+</tr>
+<!-- END -->
+
+<!-- IF group -->
+<tr>
+	<td><b>{lang.groups}:</b></td>
+	<td style="padding: 5px">
+		<!-- START group -->
+		<a class="user" href="{url}">{title}</a> ({num})<br >
+		<!-- STOP -->
+	</td>
+</tr>
+<!-- END -->
+
+<tr>
+	<td><b>{lang.opt}:</b></td>
+	<td style="padding: 10px">
+		<!-- IF pm --><a href="{pm}">[ {lang.sendPM} ]</a><!-- END -->
+		<!-- IF edit --><a href="{edit}" class="edit" style="float:right">{lang.edit}</a><!-- END -->
+	</td>
+</tr>
+</tbody>
+</table>
+
+<!-- IF u.about -->
+<div class="headerBlue">{lang.abouty}</div>
+<div class="box">
+
+	<!-- IF u.photo -->
+	<img src="{u.photo}" alt="AVATAR" style="float: right" >
+	<!-- END -->
+	
+	{u.about}
+
+</div>
+<!-- END -->

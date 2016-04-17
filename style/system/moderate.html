@@ -1,0 +1,64 @@
+<form action="" method="post">
+<h1>{lang.comms}</h1>
+
+<table cellspacing="1" class="tb" id="comments">
+<colgroup>
+	<col >
+	<col style="width: 115px" >
+</colgroup>
+<tbody>
+
+<!-- START comment -->
+<tr>
+	<th colspan="2">
+
+		<!-- IF profile -->
+		<b><a href="{profile}">{user}</a></b>
+		<!-- ELSE -->
+		<b>{user}</b>
+		<!-- END -->
+
+		&nbsp; <a href="{findIP}">{ip}</a> &nbsp; {date} &nbsp; <a href="{url}">{lang.edit}</a>
+
+		<!-- IF item -->
+		&nbsp; <a href="{item}">&rArr;</a>
+		<!-- END -->
+
+	</th>
+</tr>
+<tr>
+	<td style="max-width: 406px; word-wrap: break-word">
+		<h3>{title}</h3>
+		{text}
+	</td>
+	<td>
+		<label style="color: green">
+			<input type="radio" name="a[{id}]" value="1" f3:var="i1.access" > {lang.accept}
+		</label><br >
+		<label style="color: blue">
+			<input type="radio" name="a[{id}]" value="0" f3:var="i1.access" > {lang.hide}
+		</label><br >
+		<label style="color: red">
+			<input type="radio" name="a[{id}]" value="2" > {lang.del}
+		</label>
+	</td>
+</tr>
+<!-- STOP -->
+
+<tr>
+	<td class="eth" colspan="2">
+		<div style="float: right">{lang.page}: {pages}</div>
+		<input type="submit" value="OK" >
+	</td>
+</tr>
+
+</tbody>
+</table>
+</form>
+
+<!-- IF color -->
+<script type="text/javascript">
+include('lib/prettify/prettify.css')
+include('lib/prettify/prettify.js', function() { prettyPrint() })
+</script>
+<!-- END -->

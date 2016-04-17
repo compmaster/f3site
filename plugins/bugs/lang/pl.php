@@ -1,0 +1,38 @@
+<?php
+$lang+=Array(
+'BUGS'    => 'System zgłoszeń',
+'bugsOff' => 'Przerwa techniczna.',
+'postBug' => 'Dodaj zgłoszenie',
+'TOC'     => 'Spis treści',
+'wait'    => 'Czekaj...',
+'sent'    => 'Wysłany ',
+'legend'  => 'Legenda',
+'voted'   => 'Głosowałeś już!',
+'logtov'  => 'Zaloguj się, aby móc głosować.',
+
+'level'=>'Poziom',
+'L1'=>'Krytyczny',
+'L2'=>'Ważny',
+'L3'=>'Naturalny',
+'L4'=>'Mało znaczący',
+
+'status'=>'Status',
+'S1'=>'Gotowe',
+'S2'=>'Odrzucony',
+'S3'=>'Trwają prace',
+'S4'=>'Nowy',
+'S5'=>'Oczekuje na akceptację',
+
+'noRight' => 'Nie masz uprawień do edycji tego zgłoszenia.',
+'editBug' => 'Edytuj zgłoszenie',
+'bugsFill'=> 'Wypełnij wymagane pola!',
+'bugsMax' => 'Treść może zawierać maksymalnie %d znaków.',
+'bugsEnv' => 'Środowisko',
+'optional'=> '(opcjonalnie)',
+'guest'   => 'Gość',
+'badCode' => 'Kod z obrazka został przepisany nieprawidłowo.',
+'flood'   => 'Nie możesz wysłać kolejnego zgłoszenia tak szybko po poprzednim. Spróbuj za chwilę.',
+'saved'   => 'Zgłoszenie zostało zapisane.',
+'queued'  => 'Zgłoszenie zostało przyjęte i będzie widoczne po zaakceptowaniu go przez moderatora.',
+'error'   => 'Wystąpił błąd: ',
+);

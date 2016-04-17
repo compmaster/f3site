@@ -1,0 +1,78 @@
+nav {
+	overflow: visible
+}
+nav>span {
+	position: relative;
+	display: inline-block;
+	color: #cdcdcd;
+	line-height: 34px;
+	margin-right: 40px;
+	margin-top: -14px;
+	cursor: default
+}
+nav>span:hover {
+	color: #fff
+}
+nav>span>div {
+	display: none;
+	position: absolute;
+	line-height: normal;
+	background-color: #796E6C;
+	z-index: 99;
+}
+nav>span>div>a {
+	display: block;
+	padding: 6px;
+	margin: 0;
+	white-space: nowrap;
+}
+nav>span>div>a:hover {
+	background-color: #5D5B5C;
+	text-decoration: none;
+	cursor: pointer;
+}
+nav>span:hover>div {
+	display: block;
+	left: -6px
+}
+td>small {display: block}
+#actions {position: absolute; top: -38px; right: 5px}
+#actions a {color: #fff; margin-left: 30px; padding-top: 8px; padding-bottom: 8px}
+#all {padding-right: 10px !important; padding-left: 10px !important}
+
+/*.admenu {
+	border-left: 1px solid #bfbfbf;
+	border-right: 1px solid #bfbfbf;
+	border-bottom: 1px solid #bfbfbf;
+	background: url(img/boxBg.jpg) repeat-x #fff;
+	padding: 9px 0 15px 0;
+	overflow: hidden;
+	margin-bottom: 10px;
+	border-radius: 0 0 5px 5px
+}
+.admenu a {
+	display: block;
+	color: #4d4d4d;
+	text-decoration: none;
+	line-height: 22px;
+	padding: 0 0 0 30px;
+	border-bottom: 1px solid #eaeaea;
+	background-repeat: no-repeat;
+	background-position: 5px 3px;
+}
+.admenu a:hover {
+	background-color: #ededed;
+}
+.Arss {background-image: url(../../img/icon/rss.png)}
+.Acats {background-image: url(../../img/icon/folder.png)}
+.Apolls {background-image: url(../../img/icon/poll.png)}
+.Amenu {background-image: url(../../img/icon/app.png)}
+.Apages {background-image: url(../../img/icon/pages.png)}
+.Ausers {background-image: url(../../img/icon/group.png); margin-top: 8px}
+.Agroups {background-image: url(../../img/icon/group.png)}
+.Alog {background-image: url(../../img/icon/flag.png)}
+.Amailing {background-image: url(../../img/icon/mail.png); margin-bottom: 8px}
+.Aconfig {background-image: url(../../img/icon/cog.png)}
+.Adb {background-image: url(../../img/icon/compress.png)}
+.Aplugins {background-image: url(../../img/icon/plugin.png)}
+*/

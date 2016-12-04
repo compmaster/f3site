@@ -48,9 +48,9 @@ class Compiler
 		if(!strpos($file, '.html')) $file .= '.html';
 
 		#Check write rights
-		if(!is_writable($cache))
+		if(!is_writable('cache'))
 		{
-			throw new Exception(sprintf('ERROR: You must CHMOD folder %s to 777 via FTP', $cache));
+			throw new Exception(sprintf('ERROR: You must CHMOD folder CACHE to 777 via FTP', $cache));
 		}
 		if(file_exists($cache.$file) && !is_writable($cache.$file))
 		{

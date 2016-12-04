@@ -21,8 +21,7 @@ if(isset($cfg['auth2']))
 }
 
 #Templates folder
-$view->dir = './style/admin/';
-$view->cache = './cache/admin/';
+$view->dir = 'style/admin/';
 
 #Function: Get selected ID
 function GetID($toStr=false, $array=null)

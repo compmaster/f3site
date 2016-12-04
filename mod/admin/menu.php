@@ -51,13 +51,14 @@ if($_POST)
 $res = $db->query('SELECT ID,seq,text,disp,menu,type FROM '.PRE.'menu ORDER BY disp,menu,seq');
 $res->setFetchMode(3); //Num
 $num = 0;
-$lng = '1';
+$area = '0';
 $prev = '1';
 $blocks = array();
 
+//TODO: odczytać regiony z szablonu
 foreach($res as $m)
 {
-	if($m[3] != $prev && $m[3] != '3' && $m[3] != '2')
+	if($m[3] != $prev)
 	{
 		$lng = $prev = $m[3];
 	}

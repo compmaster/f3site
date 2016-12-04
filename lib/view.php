@@ -4,7 +4,7 @@ class View
 	public
 		$title,
 		$desc,
-		$layout = 'body',
+		$layout = 'index',
 		$path,
 		$check = true,
 		$dir;

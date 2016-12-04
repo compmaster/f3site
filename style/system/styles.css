@@ -1,7 +1,13 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+html {
+	font-size: 16px
+}
 body {
 	margin: 0 auto;
 	padding: 0;
-	font: 12px Tahoma,sans-serif;
+	font: menu; /*1rem "Segoe UI",Roboto,Helvetica Neue,Tahoma,Arial,sans-serif;*/
 	color: #313131
 }
 pre {
@@ -51,10 +57,6 @@ a.logoTop {
 	float: left;
 	width: 160px;
 	height: 117px
-}
-#all {
-	padding: 0 250px; /* 250 is sidebar width */
-	min-width: 460px  /* 460 is total sidebars width + spaces */
 }
 #loginTopForm {
 	float: right;
@@ -117,24 +119,30 @@ nav a.active {
 	color: #fff
 }
 
+/* CONTAINER */
+#all {
+	display: flex
+}
+
 /* MIDDLE PANEL */
 #main {
+	flex: 1 1 auto;
+	order: 2;
 	position: relative;
-	float: left;
 	min-height: 1px;
-	width: 100%
 }
 
 /* SIDEBAR */ 
 #left {
+	flex: 0 1 auto;
+	order: 1;
 	position: relative;
-	float: left;
 	width: 230px;
-	right: 250px; /* 230 + 20 padding */
-	margin-left: -100%;
 	padding: 0 10px
 }
 #right {
+	flex: 0 1 auto;
+	order: 3;
 	position: relative;
 	float: left;
 	width: 230px;

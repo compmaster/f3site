@@ -267,3 +267,9 @@ function getTheme($skinName)
 	}
 	return 'default';
 }
+
+/** Get or set data to cache. */
+function getCache()
+{
+	
+}

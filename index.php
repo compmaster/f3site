@@ -132,7 +132,7 @@ elseif(isset($_COOKIE['authid']) && isset($_COOKIE['authkey']))
 	if($tmp = $q->fetch(2) && password_verify($_COOKIE['authkey'], $tmp['key']))
 	{
 		//TODO: osobna tabela z logowaniami
-		//$db->exec('UPDATE '.PRE.'sessions SET `last`='.time().' WHERE ID='.$tmp['SID']);
+		$db->exec('UPDATE '.PRE.'sessions SET `last`='.time().' WHERE ID='.$tmp['SID']);
 		$user = $_SESSION['userdata'] = $tmp;
 	}
 	unset($q,$tmp);
